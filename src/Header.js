@@ -158,11 +158,30 @@ class Header extends Component {
 	renderMobileMenu() {
 		return this.state.menus.map((menu,index) => (
 			<div className="collapse-item">
-				<h3 className="collapse-header no-content">
+				<h3 className={menu.submenu.length > 0 ? "collapse-header" : "collapse-header no-content"}>
 					<a href={menu.url} title={menu.name}>
 						{menu.name}
 					</a>
 				</h3>
+				{menu.submenu.length > 0 &&
+					<div className="collapse-inner">
+						<div className="mega-menu">
+	                  		<div className="inner-menu">
+	                    		<div className="level-1">
+	                      			<ul>
+	                      				{menu.submenu.map((sub,index) => (
+	                      					<li>
+                      							<a href={sub.url} title={sub.name} className="level-1-title">
+                      								{sub.name}
+                      							</a>
+                    						</li>
+	                      				))}
+	                      			</ul>
+	                      		</div>
+	                      	</div>
+	                    </div>
+					</div>
+				}
 			</div>
 		))
 	}
