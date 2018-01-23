@@ -155,6 +155,18 @@ class Header extends Component {
 		))
 	}
 
+	renderMobileMenu() {
+		return this.state.menus.map((menu,index) => (
+			<div className="collapse-item">
+				<h3 className="collapse-header no-content">
+					<a href={menu.url} title={menu.name}>
+						{menu.name}
+					</a>
+				</h3>
+			</div>
+		))
+	}
+
 	render() {
 		return (
 			<header id="header">
@@ -188,6 +200,12 @@ class Header extends Component {
 		            	</div>
 		            </div>
 		        </div>
+
+        		<div className="mega-menu-mobile hidden-md-up">
+        			<div className="outer-menu">
+        				{this.renderMobileMenu()}
+        			</div>
+        		</div>
 		    </header>
 		)
 	}
