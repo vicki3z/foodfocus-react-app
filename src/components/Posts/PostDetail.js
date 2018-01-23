@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 
 class PostDetail extends Component {
-	constructor() {
-	    super();
+	constructor(props) {
+	    super(props);
 	    this.state = {
 	      	postInfo: {},
 	      	postTitle: "",
-	      	postContent: ""
+	      	postContent: "",
+	      	postType: "WHAT'S IN"
+	    }
+  	}
+  	setPostType() {
+  		/** Set Post Type From Slug **/
+  		if(this.props.match.path.includes("news")){
+	    	this.setState({postType: "NEWS"});
+	    } else if (this.props.match.path.includes("ushare")){
+	    	this.setState({postType: "U SHARE V CARE"});
 	    }
   	}
   	componentDidMount() {
+  		this.setPostType();
 	    fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?slug=${this.props.match.params.slug}`)
 	    	.then(res => res.json())
 	    	.then(res => {
@@ -22,7 +32,7 @@ class PostDetail extends Component {
 	    		this.setState({
 	    			postContent: this.state.postInfo.content.rendered
 	    		})
-	    		console.log(this.state.postInfo.content.rendered);
+	    		
 	    	})
   	}
   	render() {
@@ -30,7 +40,7 @@ class PostDetail extends Component {
   			<div className="row">
 		        <div className="col-md-1 hidden-xs hidden-sm"></div>
                 <div className="col-md-8 col-sm-12">
-                	<h3 className="sub-title-bg txt-white">WHAT'S IN</h3>
+                	<h3 className="sub-title-bg txt-white">{this.state.postType}</h3>
                 	<div className="content-header mar-top">
 	                    <div><span className="title light txt-black">{this.state.postTitle}</span></div>
 	                </div>
