@@ -6,6 +6,7 @@ class RoadmapDetail extends Component {
 	    this.state = {
 	      	postInfo: {},
 	      	postTitle: "",
+	      	postDate: "",
 	      	postContent: "",
 	      	roadMapType: "",
 	      	roadMapSlug: ""
@@ -45,8 +46,12 @@ class RoadmapDetail extends Component {
 	    			postTitle: this.state.postInfo.title.rendered
 	    		})
 	    		this.setState({
+	    			postDate: this.state.postInfo.acf.date
+	    		})
+	    		this.setState({
 	    			postContent: this.state.postInfo.content.rendered
 	    		})
+	    		console.log(this.state.postInfo.acf.date);
 	    		
 	    	})
   	}
@@ -57,7 +62,9 @@ class RoadmapDetail extends Component {
                 <div className="col-md-8 col-sm-12">
                 	<h3 className="sub-title-bg txt-white">{this.state.roadMapType.toUpperCase()}</h3>
                 	<div className="content-header mar-top">
-	                    <div><span className="title light txt-black">{this.state.postTitle}</span></div>
+	                    <h1 className="title light txt-black"
+	                    	dangerouslySetInnerHTML={{__html: this.state.postTitle}} />
+	                    <span className="title-3 light txt-black">{this.state.postDate}</span>
 	                </div>
 	              	<div
 	                	className="content-body"
