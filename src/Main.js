@@ -13,6 +13,7 @@ const Main = () => (
 	    	<Route path="/roadmap" component={Roadmap} />
 	    	<Route path="/whats-in" component={PostSubComponents} />
 	    	<Route path="/news" component={PostSubComponents} />
+	    	<Route path="/ushare" component={PostSubComponents} />
 	    </main>
 	</div>
 )
