@@ -7,7 +7,8 @@ class PostDetail extends Component {
 	      	postInfo: {},
 	      	postTitle: "",
 	      	postContent: "",
-	      	postType: "WHAT'S IN"
+	      	postType: "WHAT'S IN",
+	      	postTypeSlug: ""
 	    }
   	}
   	setPostType() {
@@ -18,8 +19,14 @@ class PostDetail extends Component {
 	    	this.setState({postType: "U SHARE V CARE"});
 	    }
   	}
+  	setPostTypeSlug() {
+  		var slugSplit = this.props.match.path.split("/");
+  		this.setState({postTypeSlug: slugSplit[1]});
+  	}
   	componentDidMount() {
   		this.setPostType();
+  		this.setPostTypeSlug();
+  		
 	    fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?slug=${this.props.match.params.slug}`)
 	    	.then(res => res.json())
 	    	.then(res => {
