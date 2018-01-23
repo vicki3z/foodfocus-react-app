@@ -11,6 +11,9 @@ const Main = () => (
 	  	<main>
 	    	<Route path="/" exact component={Home} />
 	    	<Route path="/roadmaps" component={RoadmapSubComponents} />
+	    	<Route path="/roadshows" component={RoadmapSubComponents} />
+	    	<Route path="/seminars" component={RoadmapSubComponents} />
+	    	
 	    	<Route path="/whats-in" component={PostSubComponents} />
 	    	<Route path="/news" component={PostSubComponents} />
 	    	<Route path="/ushare" component={PostSubComponents} />
