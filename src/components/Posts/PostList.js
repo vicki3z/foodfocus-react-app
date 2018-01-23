@@ -1,14 +1,37 @@
 import React, { Component } from 'react';
+import PostItem from '../Posts/PostItem.js';
 
 class PostList extends Component {
-	constructor() {
-	    super();
+	constructor(props) {
+	    super(props);
 	    this.state = {
-	      	postList: []
+	      	postList: [],
+	      	postType: "",
+	      	postTypeSlug: ""
 	    }
+
+  	}
+  	setPostType() {
+  		/** Set Post Type From Slug **/
+  		var type = "What's In";
+  		if(this.props.match.path.includes("news")){
+  			type = "News";
+	    } else if (this.props.match.path.includes("ushare")){
+	    	type = "U Share";
+	    }
+	    this.setState({postType: type});
+  	}
+  	setPostTypeSlug() {
+  		var slugSplit = this.props.match.path.split("/");
+  		this.setState({postTypeSlug: slugSplit[1]});
+  	}
+  	componentWillMount(){
+  		this.setPostType();
+	    this.setPostTypeSlug();
   	}
   	componentDidMount() {
-	    fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts`)
+  		
+	    fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?filter[category_name]=${this.state.postType}`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
@@ -17,19 +40,21 @@ class PostList extends Component {
 	    		console.log(this.state.postList);
 	    	})
   	}
+  	renderPostItem() {
+  		return this.state.postList.map((post,index)=>(
+  				<PostItem post={post} key={`post-${index}`} slug={this.state.postTypeSlug} />
+  			));
+  	}
   	render() {
   		return (
   			<div className="row">
-		        <div className="col-md-1 hidden-xs hidden-sm"></div>
-                <div className="col-md-8 col-sm-12">
-                	<h3 className="sub-title-bg txt-white">WHAT'S IN</h3>
+  				<div className="col-md-10 col-sm-12">
+                    <div className="content-header mar-bot">
+                    	<h3 className="title light txt-black">{this.state.postType.toUpperCase()}</h3>
+                    </div>
+                    {this.renderPostItem()}
                 </div>
-                <div className="col-md-3 col-xs-12">
-                	<div className="col-sm-12">
-                    	<h2 className="title">Other Articles</h2>
-                	</div>
-                </div>
-		    </div>	
+            </div>
   		)
   	}
 
