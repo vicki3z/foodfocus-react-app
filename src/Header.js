@@ -19,12 +19,14 @@ class Header extends Component {
 						{
 							id: 3,
 							name: "Advertiser",
-							url: "/about-us#advertiser"
+							url: "/about-us#advertiser",
+							icon: "http://www.foodfocusthailand.com/images/icons/advertisers.png"
 						},
 						{
 							id: 4,
 							name: "Board of Consultants/Endorsements",
-							url: "/about-us#board"
+							url: "/about-us#board",
+							icon: "http://www.foodfocusthailand.com/images/icons/board.png"
 						}
 					]
 				},
@@ -36,12 +38,14 @@ class Header extends Component {
 						{
 							id: 6,
 							name: "Food Focus Thailand Magazines",
-							url: "/magazines#foodfocus"
+							url: "/magazines#foodfocus",
+							icon: "http://www.foodfocusthailand.com/images/icons/fft_magazine.png"
 						},
 						{
 							id: 7,
 							name: "Special Supplements",
-							url: "/magazines#specialsup"
+							url: "/magazines#specialsup",
+							icon: "http://www.foodfocusthailand.com/images/icons/fft_supplement.png"
 						}
 					]
 				},
@@ -53,22 +57,26 @@ class Header extends Component {
 						{
 							id: 9,
 							name: "Roadmap",
-							url: "/roadmaps"
+							url: "/roadmaps",
+							icon: "http://www.foodfocusthailand.com/images/icons/roadmap.png"
 						},
 						{
 							id: 10,
 							name: "Roadshow",
-							url: "/roadshows"
+							url: "/roadshows",
+							icon: "http://www.foodfocusthailand.com/images/icons/roadshow.png"
 						},
 						{
 							id: 11,
 							name: "Seminar & Conference",
-							url: "/seminars"
+							url: "/seminars",
+							icon: "http://www.foodfocusthailand.com/images/icons/seminar.png"
 						},
 						{
 							id: 12,
 							name: "Exhibitions",
-							url: "/events"
+							url: "/events",
+							icon: "http://www.foodfocusthailand.com/images/icons/exhibition.png"
 						}
 					]
 				},
@@ -80,22 +88,26 @@ class Header extends Component {
 						{
 							id: 14,
 							name: "Contract Publication",
-							url: "/services"
+							url: "/services",
+							icon: "http://www.foodfocusthailand.com/images/icons/contract_pub.png"
 						},
 						{
 							id: 15,
 							name: "Anniversary & Annual Report",
-							url: "/services"
+							url: "/services",
+							icon: "http://www.foodfocusthailand.com/images/icons/annual_report.png"
 						},
 						{
 							id: 16,
 							name: "Company Profile & Product Catalogue",
-							url: "/services"
+							url: "/services",
+							icon: "http://www.foodfocusthailand.com/images/icons/profile_catalog.png"
 						},
 						{
 							id: 17,
 							name: "Event Organizer",
-							url: "/services"
+							url: "/services",
+							icon: "http://www.foodfocusthailand.com/images/icons/event_org.png"
 						}
 					]
 				},
@@ -114,7 +126,7 @@ class Header extends Component {
 			<li>
 				<a href={menu.url} title={menu.name}>
 					<span className="visual-img">
-						<img src="http://www.foodfocusthailand.com/images/icons/advertisers.png" alt={menu.name} />
+						<img src={menu.icon} alt={menu.name} />
 					</span>
 					<span className="text txt-black">{menu.name}</span>
 				</a>
