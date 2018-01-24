@@ -4583,3 +4583,7 @@ a.subscribe {
     width: 100%;
   }
 }
+
+#top-banner {
+  background-color: #282929;
+}
