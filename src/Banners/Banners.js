@@ -9,7 +9,8 @@ class Banners extends Component {
 		}
 	}
 	componentDidMount() {
-		fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/banners`)
+		/** Get only top banners **/
+		fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/banner?position=14&order=asc`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
