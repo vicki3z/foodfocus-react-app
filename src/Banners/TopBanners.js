@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick'
 
-class Banners extends Component {
+class TopBanners extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -53,4 +53,4 @@ class Banners extends Component {
 
 }
 
-export default Banners;
+export default TopBanners;
