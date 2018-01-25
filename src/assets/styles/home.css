@@ -1,0 +1,6 @@
+/*=== Home Banner ===*/
+.page .banner-wrap .item .thumb {
+	background: linear-gradient(rgba(20,20,20, .3), rgba(20,20,20, .3)), url(../images/header_bg3.jpg); 
+	background-size: 100%; 
+	background-position-y: 705px; 
+}
