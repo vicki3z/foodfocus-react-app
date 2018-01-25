@@ -4,3 +4,8 @@
 	background-size: 100%; 
 	background-position-y: 705px; 
 }
+
+/*=== Home Articles List ===*/
+.page #articles-wrapper {
+	background-color: #f9f9f9;
+}
