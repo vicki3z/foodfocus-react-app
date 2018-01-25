@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostHighlight from './Posts/PostHighlight.js';
+import HomeMainPost from './Posts/HomeMainPost.js';
 import '../assets/styles/home.css';
 
 class Home extends Component {
@@ -40,10 +41,18 @@ class Home extends Component {
 
 	render() {
 		let postHighlight;
+		let mainArticles;
 		if(this.state.highlightStory.title !== undefined){
 			postHighlight = <PostHighlight slug="whats-in" post={this.state.highlightStory} />
 		}else{
 			postHighlight = null;
+		}
+		if(this.state.mainArticles.length > 0){
+			mainArticles = this.state.mainArticles.map((post,index) => (
+				<HomeMainPost slug="whats-in" post={post} key={`whats-in-${index}`} />
+			))
+		}else{
+			mainArticles = null
 		}
 		return(
 			<div>
@@ -92,6 +101,7 @@ class Home extends Component {
               				<div className="col-sm-12 col-md-8 mar-top">
               					{postHighlight}
               				</div>
+              				{mainArticles}
 						</div>
 					</div>
 				</div>
