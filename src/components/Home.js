@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PostHighlight from './Posts/PostHighlight.js';
 import HomeMainPost from './Posts/HomeMainPost.js';
+import HomePostItem from './Posts/HomePostItem.js';
 import '../assets/styles/home.css';
 
 class Home extends Component {
@@ -19,7 +20,8 @@ class Home extends Component {
 				url: "http://www.foodfocusthailand.com/click.php?id=ebook-142"
 			},
 			mainArticles: [],
-			highlightStory: {}
+			highlightStory: {},
+			newsArticles: []
 		}
 	}
 
@@ -34,25 +36,40 @@ class Home extends Component {
 	    		this.setState({
 	    			highlightStory: this.state.mainArticles.shift()
 	    		})
-	    		console.log(this.state.highlightStory);
-	    		console.log(this.state.mainArticles);
+	    	})
+	    fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?filter[category_name]=News&per_page=4`)
+	    	.then(res => res.json())
+	    	.then(res => {
+	    		this.setState({
+	    			newsArticles: res
+	    		})
 	    	})
 	}
 
 	render() {
 		let postHighlight;
-		let mainArticles;
 		if(this.state.highlightStory.title !== undefined){
 			postHighlight = <PostHighlight slug="whats-in" post={this.state.highlightStory} />
 		}else{
 			postHighlight = null;
 		}
+
+		let mainArticles;
 		if(this.state.mainArticles.length > 0){
 			mainArticles = this.state.mainArticles.map((post,index) => (
 				<HomeMainPost slug="whats-in" post={post} key={`whats-in-${index}`} />
 			))
 		}else{
 			mainArticles = null
+		}
+
+		let newsArticles;
+		if(this.state.newsArticles.length > 0){
+			newsArticles = this.state.newsArticles.map((post,index) => (
+				<HomePostItem slug="news" post={post} key={`news-${index}`} index={index} />
+			))
+		}else{
+			newsArticles = null;
 		}
 		return(
 			<div>
@@ -92,7 +109,7 @@ class Home extends Component {
 						</div>
 					</section>
 				</section>
-				<div className="wrapper pad-top-lg pad-bot-lg" id="articles-wrapper">
+				<div className="wrapper pad-top-lg pad-bot-lg" id="main-articles-wrapper">
 					<div className="inner-container">
             			<div className="row">
               				<div className="col-sm-12">
@@ -102,6 +119,30 @@ class Home extends Component {
               					{postHighlight}
               				</div>
               				{mainArticles}
+						</div>
+					</div>
+				</div>
+				<div className="wrapper pad-bot-lg pad-top-lg" id="other-articles-wrapper">
+					<div className="inner-container">
+            			<div className="row">
+              				<div className="col-sm-12">
+                				<h2 className="title light">NEWS & ACTIVITIES</h2>
+              				</div>
+              				<div class="col-sm-6 col-md-4 mar-top">
+              					<ul class="list-primary">
+              						{newsArticles}
+              					</ul>
+              				</div>
+              				<div class="col-sm-6 col-md-4 mar-top">
+              					<ul class="list-primary">
+              						{newsArticles}
+              					</ul>
+              				</div>
+              				<div class="col-sm-6 col-md-4 mar-top">
+              					<ul class="list-primary">
+              						{newsArticles}
+              					</ul>
+              				</div>
 						</div>
 					</div>
 				</div>

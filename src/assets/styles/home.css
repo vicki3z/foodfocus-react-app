@@ -6,6 +6,10 @@
 }
 
 /*=== Home Articles List ===*/
-.page #articles-wrapper {
+.page #main-articles-wrapper {
 	background-color: #f9f9f9;
+}
+
+.page #other-articles-wrapper {
+	background-color: #fff;
 }
