@@ -14,7 +14,7 @@ class Header extends Component {
 				{
 					id: 2,
 					name: "About Us",
-					url: "/about-us",
+					url: "/about-us.html",
 					submenu: [
 						{
 							id: 3,
@@ -33,7 +33,7 @@ class Header extends Component {
 				{
 					id: 5,
 					name: "Magazine",
-					url: "/magazines",
+					url: "/magazine.html",
 					submenu: [
 						{
 							id: 6,
@@ -57,19 +57,19 @@ class Header extends Component {
 						{
 							id: 9,
 							name: "Roadmap",
-							url: "/roadmaps",
+							url: "/roadmap.html",
 							icon: "https://www.foodfocusthailand.com/images/icons/roadmap.png"
 						},
 						{
 							id: 10,
 							name: "Roadshow",
-							url: "/roadshows",
+							url: "/roadshow.html",
 							icon: "https://www.foodfocusthailand.com/images/icons/roadshow.png"
 						},
 						{
 							id: 11,
 							name: "Seminar & Conference",
-							url: "/seminars",
+							url: "/seminar.html",
 							icon: "https://www.foodfocusthailand.com/images/icons/seminar.png"
 						},
 						{
