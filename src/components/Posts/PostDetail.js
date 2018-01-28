@@ -47,9 +47,18 @@ class PostDetail extends Component {
   			<div className="row">
 		        <div className="col-md-1 hidden-xs hidden-sm"></div>
                 <div className="col-md-8 col-sm-12">
-                	<h3 className="sub-title-bg txt-white">{this.state.postType}</h3>
+                	<h3 className="sub-title-bg txt-white">
+                		<a href={`/${this.state.postTypeSlug}`}>
+                			{this.state.postType}
+                		</a>
+                	</h3>
                 	<div className="content-header mar-top">
-	                    <div><span className="title light txt-black">{this.state.postTitle}</span></div>
+	                    <div>
+	                    	<span className="title light txt-black" 
+	                    		dangerouslySetInnerHTML={{
+	                    			__html: this.state.postTitle
+	                    		}} />
+	                    </div>
 	                </div>
 	              	<div
 	                	className="content-body"

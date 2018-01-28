@@ -7,7 +7,7 @@ import PostSubComponents from './components/Posts/PostSubComponents.js';
 const Main = () => (
 	<div className="root responsivegrid">
 	  	<main>
-	    	<Route path="/" exact component={Home} />
+	    	<Route path="/index.html" exact component={Home} />
 	    	<Route path="/roadmaps" component={RoadmapSubComponents} />
 	    	<Route path="/roadshows" component={RoadmapSubComponents} />
 	    	<Route path="/seminars" component={RoadmapSubComponents} />

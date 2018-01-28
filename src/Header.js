@@ -8,7 +8,7 @@ class Header extends Component {
 				{
 					id: 1,
 					name: "Home",
-					url: "/",
+					url: "/index.html",
 					submenu: []
 				},
 				{
