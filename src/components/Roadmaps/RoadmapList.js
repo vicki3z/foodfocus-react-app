@@ -30,7 +30,7 @@ class RoadmapList extends Component {
     }
   	render() {
   		return (
-  			<div id={this.props.year.name} className="inner">
+  			<div id={this.props.year.name} className={"inner "+(this.props.year.id == this.props.yearActive ? "active" : "")}>
           {this.renderRoadMapItem()}
         </div>
   		)

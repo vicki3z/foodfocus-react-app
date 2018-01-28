@@ -56,6 +56,12 @@ class RoadmapListWrapper extends Component {
 	    		this.setState({
 	    			eventYears: res
 	    		})
+
+	    		this.setState({
+	    			yearActive: this.state.eventYears[0].id
+	    		})
+	    		console.log(this.state.eventYears);
+	    		console.log(this.state.yearActive);
 	    	})
 
 	    
@@ -63,11 +69,14 @@ class RoadmapListWrapper extends Component {
   	}
   	setYearActive(yearId) {
   		console.log("setYearActive");
+  		this.setState({
+  			yearActive: yearId
+  		})
   	}
   	renderEventYears() {
   		if(this.state.eventYears.length > 0){
   			return this.state.eventYears.map((year,index) => (
-  				<a href={"#"+year.name} title="" className={"col"+ (year.id == this.state.yearActive ? "active" : "")}> 
+  				<a href={"#"+year.name} title="" onClick={() => {this.setYearActive()}} className={"col "+ (year.id == this.state.yearActive ? "active" : "")}> 
                     <h3 className="title-primary light">{year.name}</h3>
                   </a>
   			))
@@ -78,7 +87,7 @@ class RoadmapListWrapper extends Component {
   	renderRoadMapList() {
   		if(this.state.eventYears.length > 0){
   			return this.state.eventYears.map((year,index) => (
-  				<RoadmapList year={year} index={index} roadMapSlug={this.state.roadMapSlug} roadMapType={this.state.roadMapType} />
+  				<RoadmapList year={year} yearActive={this.state.yearActive} index={index} roadMapSlug={this.state.roadMapSlug} roadMapType={this.state.roadMapType} />
   			))
   		}else{
   			return null
