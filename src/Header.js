@@ -194,7 +194,7 @@ class Header extends Component {
 		            	<div className="hamburger-box hidden-md-up">
 		              		<div className="hamburger-inner"></div>
 		            	</div>
-		            	<a href="/" title="" target="_blank" className="logo hidden-xs hidden-sm">
+		            	<a href="/index.html" title="" className="logo hidden-xs hidden-sm">
 		            		<img src="https://www.foodfocusthailand.com/images/logo.png" alt="" />
 		            	</a>
 		            	<a href="https://www.foodfocusthailand.com/index.html" title="" target="_blank" className="logo hidden-md-up">
