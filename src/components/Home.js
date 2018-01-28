@@ -3,7 +3,9 @@ import PostHighlight from './Posts/PostHighlight.js';
 import HomeMainPost from './Posts/HomeMainPost.js';
 import HomePostItem from './Posts/HomePostItem.js';
 import BottomBanners from './Banners/BottomBanners.js';
+import Subscribe from './Subscribe.js';
 import '../assets/styles/home.css';
+import '../assets/styles/banner.css';
 
 class Home extends Component {
 	constructor(){
@@ -120,14 +122,7 @@ class Home extends Component {
 	                            				<p className="sub-title-2 txt-white">{this.state.magazine.issueMonth.toUpperCase()}</p>
 	                            			</div>
 										</div>
-										<div className="mar-top">
-											<form className="subscribe-form">
-                              					<input type="email" placeholder="Email" name="emailInput" className="form-control" />
-                              					<div className="subscribe">
-                              						<a className="txt-mediumer subscribe-btn">SUBSCRIBE TO NEWSLETTER</a>
-                              					</div>
-                            				</form>
-										</div>
+										<Subscribe />
 									</div>
 								</div>
 							</div>
