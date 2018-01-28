@@ -37,7 +37,6 @@ class PostList extends Component {
 	    		this.setState({
 	    			postList: res
 	    		})
-	    		console.log(this.state.postList);
 	    	})
   	}
   	renderPostItem() {

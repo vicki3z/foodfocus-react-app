@@ -16,7 +16,6 @@ class BottomBanners extends Component {
 	    		this.setState({
 	    			banners: res
 	    		})
-	    		console.log(this.state.banners);
 	    	})
 	}
 	renderBottomBanner() {

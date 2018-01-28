@@ -16,7 +16,6 @@ class TopBanners extends Component {
 	    		this.setState({
 	    			banners: res
 	    		})
-	    		console.log(this.state.banners);
 	    	})
 	}
 	renderTopBanner() {

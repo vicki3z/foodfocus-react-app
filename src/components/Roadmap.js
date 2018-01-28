@@ -20,7 +20,6 @@ class Roadmap extends Component {
 	    		this.setState({
 	    			pageContent: this.state.pageInfo.content.rendered
 	    		})
-	    		console.log(this.state.pageInfo.content.rendered);
 	    	})
   	}
   	render() {

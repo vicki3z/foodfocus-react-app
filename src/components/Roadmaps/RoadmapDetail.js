@@ -51,7 +51,6 @@ class RoadmapDetail extends Component {
 	    		this.setState({
 	    			postContent: this.state.postInfo.content.rendered
 	    		})
-	    		console.log(this.state.postInfo.acf.date);
 	    		
 	    	})
   	}
