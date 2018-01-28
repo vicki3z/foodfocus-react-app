@@ -8,6 +8,10 @@
   line-height: 1.5em;
 }
 
+.page .see-all {
+	font-size: 1.3em;
+}
+
 /*== Post List ==*/
 .page .list .content-item {
   border-bottom: none;

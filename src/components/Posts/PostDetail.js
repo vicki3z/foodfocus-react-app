@@ -8,15 +8,19 @@ class PostDetail extends Component {
 	      	postTitle: "",
 	      	postContent: "",
 	      	postType: "WHAT'S IN",
-	      	postTypeSlug: ""
+	      	postTypeSlug: "",
+	      	postCategoryName: "What's In",
+	      	otherArticles: []
 	    }
   	}
   	setPostType() {
   		/** Set Post Type From Slug **/
   		if(this.props.match.path.includes("news")){
 	    	this.setState({postType: "NEWS"});
+	    	this.setState({postCategoryName: "News"});
 	    } else if (this.props.match.path.includes("ushare")){
 	    	this.setState({postType: "U SHARE V CARE"});
+	    	this.setState({postCategoryName: "ushare"});
 	    }
   	}
   	setPostTypeSlug() {
@@ -41,6 +45,37 @@ class PostDetail extends Component {
 	    		})
 	    		
 	    	})
+
+	    //Get other posts
+	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?filter[category_name]=${this.state.postCategoryName}&per_page=3`)
+	    	.then(res => res.json())
+	    	.then(res => {
+	    		this.setState({
+	    			otherArticles: res
+	    		})
+	    		
+	    	})
+  	}
+  	renderOtherArticles() {
+  		if(this.state.otherArticles.length > 0){
+  			return this.state.otherArticles.map((post, index) =>(
+  				<div className="col-md-12 col-sm-6">
+                  <div className="content-item">
+                  	<a href={`/${this.state.postTypeSlug}/${post.slug}`} title={post.title.rendered}>
+                  		<span className="visual-img">
+                  			<img src={post.better_featured_image.source_url} alt={post.title.rendered} />
+                  		</span>
+                  		<span className="text txt-black" 
+                  			dangerouslySetInnerHTML={{
+                  				__html: post.title.rendered
+                  			}} />
+                  	</a>
+                  </div>
+                </div>
+  			))
+  		}else{
+  			return null;
+  		}
   	}
   	render() {
   		return (
@@ -70,6 +105,12 @@ class PostDetail extends Component {
                 <div className="col-md-3 col-xs-12">
                 	<div className="col-sm-12">
                     	<h2 className="title">Other Articles</h2>
+                    	{this.renderOtherArticles()}
+                    	<div className="col-sm-12 mar-top">
+                    		<a href={`/${this.state.postTypeSlug}`}>
+                    			<span className="txt-black see-all">See all ></span>
+                    		</a>
+                    	</div>
                 	</div>
                 </div>
 		    </div>	
