@@ -11,7 +11,7 @@ const PostHighlight = function(props){
             <div className="caption">
                 <div className="desc">
                     <h2 className="title-1-thumb">{props.post.title.rendered}</h2>
-                    <p className="text-mediumer-thumb">xxxx</p>
+                    <p className="text-mediumer-thumb">{props.post.acf.summary}</p>
                 </div>
             </div>
         </a>

@@ -14,10 +14,24 @@
 	background-color: #fff;
 }
 
+/*=== Home Highlight Post ===*/
+.page #main-articles-wrapper .story .caption .desc > .text-mediumer-thumb {
+	line-height: 1.3;
+}
+
+.page #main-articles-wrapper .thumb-default:hover, .page #main-articles-wrapper .story:hover {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
 /*==== Homepage News & Activities ====*/
 .page ul.list-primary {
 	border-top: none;
 }
 .page ul.list-primary li a > img {
 	margin-bottom: 15px;
+	height: 260px;
+}
+
+.page ul.list-primary li a:hover {
+	text-decoration: underline;
 }
