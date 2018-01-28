@@ -9,7 +9,7 @@ const HomePostItem = function(props){
     }
 
     let summary;
-    if(props.post.acf != false){
+    if(props.post.acf.summary != ""){
         summary = props.post.acf.summary
     }else{
         summary = props.post.title.rendered

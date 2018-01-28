@@ -49,6 +49,7 @@ class Home extends Component {
 	    		this.setState({
 	    			newsArticles: res
 	    		})
+	    		console.log(this.state.newsArticles);
 	    	})
 
 	    /** Get 4 latest Ushare **/
