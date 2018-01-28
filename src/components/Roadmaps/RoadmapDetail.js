@@ -56,28 +56,32 @@ class RoadmapDetail extends Component {
   	}
   	render() {
   		return (
-  			<div className="row">
-		        <div className="col-md-1 hidden-xs hidden-sm"></div>
-                <div className="col-md-8 col-sm-12">
-                	<h3 className="sub-title-bg txt-white">{this.state.roadMapType.toUpperCase()}</h3>
-                	<div className="content-header mar-top">
-	                    <h1 className="title light txt-black"
-	                    	dangerouslySetInnerHTML={{__html: this.state.postTitle}} />
-	                    <span className="title-3 light txt-black">{this.state.postDate}</span>
-	                </div>
-	              	<div
-	                	className="content-body"
-	                		dangerouslySetInnerHTML={{
-	                    		__html: this.state.postContent
-	                	}}
-	              	/>
-                </div>
-                <div className="col-md-3 col-xs-12">
-                	<div className="col-sm-12">
-                    	<h2 className="title">Other Events</h2>
-                	</div>
-                </div>
-		    </div>	
+  			<section className="content pad-top-lg pad-bot-lg">
+  				<div className="inner-container">
+		  			<div className="row">
+				        <div className="col-md-1 hidden-xs hidden-sm"></div>
+		                <div className="col-md-8 col-sm-12">
+		                	<h3 className="sub-title-bg txt-white">{this.state.roadMapType.toUpperCase()}</h3>
+		                	<div className="content-header mar-top">
+			                    <h1 className="title light txt-black"
+			                    	dangerouslySetInnerHTML={{__html: this.state.postTitle}} />
+			                    <span className="title-3 light txt-black">{this.state.postDate}</span>
+			                </div>
+			              	<div
+			                	className="content-body"
+			                		dangerouslySetInnerHTML={{
+			                    		__html: this.state.postContent
+			                	}}
+			              	/>
+		                </div>
+		                <div className="col-md-3 col-xs-12">
+		                	<div className="col-sm-12">
+		                    	<h2 className="title">Other Events</h2>
+		                	</div>
+		                </div>
+				    </div>
+				</div>
+			</section>	
   		)
   	}
 
