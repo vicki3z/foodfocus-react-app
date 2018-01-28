@@ -7,11 +7,20 @@ const HomePostItem = function(props){
     }else{
         imagePost = null
     }
+
+    let summary;
+    if(props.post.acf != false){
+        summary = props.post.acf.summary
+    }else{
+        summary = props.post.title.rendered
+    }
     return (
         <li>
             <a href={`/${props.slug}/${props.post.slug}`}>
                 {imagePost}
-                <span className="title-3-thumb">{props.post.title.rendered}</span>
+                <span className="title-3-thumb" 
+                    dangerouslySetInnerHTML={{
+                        __html: summary}} />
             </a>
         </li>
     )

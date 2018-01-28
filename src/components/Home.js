@@ -21,7 +21,8 @@ class Home extends Component {
 			},
 			mainArticles: [],
 			highlightStory: {},
-			newsArticles: []
+			newsArticles: [],
+			ushareArticles: []
 		}
 	}
 
@@ -37,12 +38,26 @@ class Home extends Component {
 	    			highlightStory: this.state.mainArticles.shift()
 	    		})
 	    	})
+
+	    /** Get 4 latest news **/
 	    fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?filter[category_name]=News&per_page=4`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
 	    			newsArticles: res
 	    		})
+	    		console.log(this.state.newsArticles)
+	    	})
+
+	    /** Get 4 latest Ushare **/
+	    var type = "U Share";
+		fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?filter[category_name]=ushare&per_page=4`)
+	    	.then(res => res.json())
+	    	.then(res => {
+	    		this.setState({
+	    			ushareArticles: res
+	    		})
+	    		
 	    	})
 	}
 
@@ -70,6 +85,15 @@ class Home extends Component {
 			))
 		}else{
 			newsArticles = null;
+		}
+
+		let ushareArticles;
+		if(this.state.ushareArticles.length > 0){
+			ushareArticles = this.state.ushareArticles.map((post,index) => (
+				<HomePostItem slug="news" post={post} key={`news-${index}`} index={index} />
+			))
+		}else{
+			ushareArticles = null;
 		}
 		return(
 			<div>
@@ -140,7 +164,7 @@ class Home extends Component {
               				</div>
               				<div class="col-sm-6 col-md-4 mar-top">
               					<ul class="list-primary">
-              						{newsArticles}
+              						{ushareArticles}
               					</ul>
               				</div>
 						</div>

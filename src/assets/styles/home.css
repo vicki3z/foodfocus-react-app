@@ -13,3 +13,11 @@
 .page #other-articles-wrapper {
 	background-color: #fff;
 }
+
+/*==== Homepage News & Activities ====*/
+.page ul.list-primary {
+	border-top: none;
+}
+.page ul.list-primary li a > img {
+	margin-bottom: 15px;
+}
