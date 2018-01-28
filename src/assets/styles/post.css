@@ -1,0 +1,28 @@
+/*== Post Detail ==*/
+.page .content-body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+.page .content-body p {
+  margin-top: 20px;
+  line-height: 1.5em;
+}
+
+.page .see-all {
+	font-size: 1.3em;
+}
+
+/*== Post List ==*/
+.page .list .content-item {
+  border-bottom: none;
+}
+.page .list .content-item .text{
+  font-size: 30px;
+}
+.page .list:hover img{
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+.page .list:hover .text{
+  text-decoration: underline;
+}
