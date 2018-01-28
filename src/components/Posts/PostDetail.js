@@ -27,10 +27,11 @@ class PostDetail extends Component {
   		var slugSplit = this.props.match.path.split("/");
   		this.setState({postTypeSlug: slugSplit[1]});
   	}
-  	componentDidMount() {
+  	componentWillMount(){
   		this.setPostType();
   		this.setPostTypeSlug();
-  		
+  	}
+  	componentDidMount() {
 	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?slug=${this.props.match.params.slug}`)
 	    	.then(res => res.json())
 	    	.then(res => {

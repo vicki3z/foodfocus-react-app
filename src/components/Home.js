@@ -93,7 +93,7 @@ class Home extends Component {
 		let ushareArticles;
 		if(this.state.ushareArticles.length > 0){
 			ushareArticles = this.state.ushareArticles.map((post,index) => (
-				<HomePostItem slug="news" post={post} key={`news-${index}`} index={index} />
+				<HomePostItem slug="ushare" post={post} key={`news-${index}`} index={index} />
 			))
 		}else{
 			ushareArticles = null;
@@ -152,6 +152,9 @@ class Home extends Component {
               					<ul class="list-primary">
               						{newsArticles}
               					</ul>
+              					<div className="mar-top">
+              						<a href="/news" className="txt-black title-3-thumb">ดูข่าวอื่นๆ ></a>
+              					</div>
               				</div>
               				<div class="col-sm-6 col-md-4 mar-top">
               					<ul class="list-primary">
@@ -172,6 +175,9 @@ class Home extends Component {
               					<ul class="list-primary">
               						{ushareArticles}
               					</ul>
+              					<div className="mar-top">
+              						<a href="/ushare" className="txt-black title-3-thumb">ดูประกาศอื่นๆ ></a>
+              					</div>
               				</div>
               				<BottomBanners />
 						</div>
