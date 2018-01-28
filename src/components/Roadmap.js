@@ -11,7 +11,7 @@ class Roadmap extends Component {
 	    }
   	}
   	componentDidMount() {
-	    fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/pages?slug=food-focus-thailand-roadmap`)
+	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/pages?slug=food-focus-thailand-roadmap`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({

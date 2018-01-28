@@ -36,7 +36,7 @@ class RoadmapDetail extends Component {
   	componentDidMount() {
   		
   		
-	    fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/${this.state.roadMapType}?slug=${this.props.match.params.slug}`)
+	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/${this.state.roadMapType}?slug=${this.props.match.params.slug}`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({

@@ -27,7 +27,7 @@ class PostDetail extends Component {
   		this.setPostType();
   		this.setPostTypeSlug();
   		
-	    fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?slug=${this.props.match.params.slug}`)
+	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?slug=${this.props.match.params.slug}`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({

@@ -17,7 +17,7 @@ class PostList extends Component {
   		if(this.props.match.path.includes("news")){
   			type = "News";
 	    } else if (this.props.match.path.includes("ushare")){
-	    	type = "U Share";
+	    	type = "ushare";
 	    }
 	    this.setState({postType: type});
   	}
@@ -31,7 +31,7 @@ class PostList extends Component {
   	}
   	componentDidMount() {
   		
-	    fetch(`http://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?filter[category_name]=${this.state.postType}`)
+	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?filter[category_name]=${this.state.postType}`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
