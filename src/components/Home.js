@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PostHighlight from './Posts/PostHighlight.js';
 import HomeMainPost from './Posts/HomeMainPost.js';
 import HomePostItem from './Posts/HomePostItem.js';
+import BottomBanners from './Banners/BottomBanners.js';
 import '../assets/styles/home.css';
 
 class Home extends Component {
@@ -177,6 +178,7 @@ class Home extends Component {
               						{ushareArticles}
               					</ul>
               				</div>
+              				<BottomBanners />
 						</div>
 					</div>
 				</div>
