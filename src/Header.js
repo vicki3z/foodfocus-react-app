@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchComponent from './SearchComponent.js'
 
 class Header extends Component {
 	constructor() {
@@ -202,14 +203,7 @@ class Header extends Component {
 		            	</a>
 		            	<div className="right-header">
               				<section className="search-block small hidden-xs hidden-sm">
-                				<form action="#" method="get" name="search-form" id="search-form">
-                					<a href="#" target="_blank">
-                						<img src="https://www.foodfocusthailand.com/images/icons/ic-search.svg" alt="undefined" />
-                					</a>
-		                  			<div className="search-input">
-		                          		<input type="text" name="search-input" id="search-input" placeholder="Coming Soon..." />
-		                  			</div>
-	                			</form>
+                				<SearchComponent />
               				</section>
               				<nav className="global-nav hidden-xs hidden-sm">
                 				<ul>
