@@ -10,22 +10,28 @@ class RoadmapListWrapper extends Component {
 	      	pageTitle: null,
 	      	pageContent: null,
 	      	eventYears: [],
-	      	yearActive: null
+	      	yearActive: null,
+	      	pageInfoSlug: ""
 	    }
 	    this.setYearActive = this.setYearActive.bind(this);
   	}
   	setRoadmapType() {
   		/** Set Post Type From Slug **/
   		var type = "";
+  		var infoSlug = "";
   		if(this.props.match.path.includes("roadmaps")){
 	    	type = "roadmap";
+	    	infoSlug = "food-focus-thailand-roadmap";
 	    } else if (this.props.match.path.includes("roadshows")){
 	    	type = "roadshow";
+	    	infoSlug = "food-focus-thailand-roadshow";
 	    } else {
 	    	type = "seminar";
+	    	infoSlug = "seminars-conferences";
 	    }
 
 	    this.setState({roadMapType: type});
+	    this.setState({pageInfoSlug: infoSlug});
   	}
   	setRoadmapSlug() {
   		var slugSplit = this.props.match.path.split("/");
@@ -37,7 +43,7 @@ class RoadmapListWrapper extends Component {
   	}
   	componentDidMount() {
   		/* get page info */
-  		fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/pages?slug=food-focus-thailand-roadmap`)
+  		fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/pages?slug=${this.state.pageInfoSlug}`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		var pageInfo = res.shift();
@@ -102,7 +108,10 @@ class RoadmapListWrapper extends Component {
 	                  <div className="caption">
 	                    <div className="inner-container">
 	                      <div className="middle-block">
-	                        <h2 className="intro txt-white">{this.state.pageTitle}</h2>
+	                        <h2 className="intro txt-white" 
+	                        	dangerouslySetInnerHTML={{
+	                        		__html: this.state.pageTitle
+	                        	}}/>
 	                        <div className="content txt-white"
 	                          dangerouslySetInnerHTML={{
 	                              __html: this.state.pageContent
