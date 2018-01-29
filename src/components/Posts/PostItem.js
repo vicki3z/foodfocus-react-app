@@ -7,8 +7,26 @@ const PostItem = function(props) {
   }else{
     imgSource = props.post.better_featured_image.source_url
   }
+
+  var slug = "";
+  if(props.slug == undefined){
+    if(props.post.type != 'post'){
+      slug = props.post.type + 's';
+    }else{
+      const categoryId = props.post.categories[0];
+      if(categoryId == 6){
+        slug = 'news'
+      }else if(categoryId == 7 || categoryId == 13){
+        slug = 'whats-in'
+      }else if(categoryId == 12){
+        slug = 'ushare'
+      }
+    }
+  }else{
+    slug = props.slug
+  }
   return(
-  	   <a href={`/${props.slug}/${props.post.slug}`}>
+  	   <a href={`/${slug}/${props.post.slug}`}>
           <div className="row list mar-bot">
             	<div className="col-md-2">
               	<span className="visual-img">
@@ -16,6 +34,9 @@ const PostItem = function(props) {
               	</span>
             	</div>
             	<div className="col-md-10 content-item">
+                {props.slug == undefined &&
+                  <h3 className="sub-title-bg txt-white">{slug.toUpperCase()}</h3>
+                }
               	<h3 className="text txt-black"
                 		dangerouslySetInnerHTML={{
               			__html: props.post.title.rendered

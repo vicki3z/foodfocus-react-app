@@ -11,62 +11,66 @@ class SearchList extends Component {
   	}
   	
   	componentDidMount() {
-      let postList = []
   		fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?search=${this.props.match.params.word}`)
         .then(res => res.json())
         .then(res => {
-          var postList = []
+          console.log("post")
+          console.log(res);
           if(this.state.postList.length > 0){
-            postList = this.state.postList;
-            postList.concat(res);
-            
+            console.log("concat")
+            this.setState({postList: this.state.postList.concat(res)})
+            console.log(this.state.postList)
           }else{
-            postList = res
+            this.setState({postList: res})
           }
-          this.setState({postList: postList})
+          
         })
       fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/roadmap?search=${this.props.match.params.word}`)
         .then(res => res.json())
         .then(res => {
-          var postList = []
+          console.log("roadmap")
+          console.log(res);
           if(this.state.postList.length > 0){
-            postList = this.state.postList;
-            postList.concat(res);
+            console.log("concat")
+            this.setState({postList: this.state.postList.concat(res)})
+            console.log(this.state.postList)
           }else{
-            postList = res
+            this.setState({postList: res})
           }
-          this.setState({postList: postList})
         })
       fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/roadshow?search=${this.props.match.params.word}`)
         .then(res => res.json())
         .then(res => {
-          var postList = []
+          console.log("roadshow")
+          console.log(res);
           if(this.state.postList.length > 0){
-            postList = this.state.postList;
-            postList.concat(res);
+            console.log("concat")
+            this.setState({postList: this.state.postList.concat(res)})
+            console.log(this.state.postList)
           }else{
-            postList = res
+            this.setState({postList: res})
           }
-          this.setState({postList: postList})
         })
       fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/seminar?search=${this.props.match.params.word}`)
         .then(res => res.json())
         .then(res => {
-          var postList = []
+          console.log("seminar")
+          console.log(res);
           if(this.state.postList.length > 0){
-            postList = this.state.postList;
-            postList.concat(res);
+            console.log("concat")
+            this.setState({postList: this.state.postList.concat(res)})
+            console.log(this.state.postList)
           }else{
-            postList = res
+            this.setState({postList: res})
           }
-          this.setState({postList: postList})
         })
   	}
   	renderPostItem() {
-  		console.log(this.state.postList);
+      console.log("render")
+      console.log(this.state.postList)
       if(this.state.postList.length > 0){
         return this.state.postList.map((post,index)=>(
-          <PostItem post={post} key={`post-${index}`} slug={this.state.postTypeSlug} />
+          <PostItem post={post} key={`post-${index}`} />
         ));
       }else{
         return null;

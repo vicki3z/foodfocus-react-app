@@ -15,7 +15,7 @@ class SearchComponent extends Component {
 	render() {
 		return (
 			<form action="#" method="get" name="search-form" id="search-form">
-				<a href={`/search/${this.state.searchWord}`} target="_blank">
+				<a href={`/search/${this.state.searchWord}`}>
 					<img src="https://www.foodfocusthailand.com/images/icons/ic-search.svg" alt="search" />
 				</a>
       			<div className="search-input">
