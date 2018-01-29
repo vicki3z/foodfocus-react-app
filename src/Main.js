@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Home from './components/Home.js';
 import RoadmapSubComponents from './components/Roadmaps/RoadmapSubComponents.js';
 import PostSubComponents from './components/Posts/PostSubComponents.js';
+import SearchList from './components/Posts/SearchList.js';
 
 const Main = () => (
 	<div className="root responsivegrid">
@@ -15,6 +16,8 @@ const Main = () => (
 	    	<Route path="/whats-in" component={PostSubComponents} />
 	    	<Route path="/news" component={PostSubComponents} />
 	    	<Route path="/ushare" component={PostSubComponents} />
+
+	    	<Route path="/search/:word" component={SearchList} />
 	    </main>
 	</div>
 )
