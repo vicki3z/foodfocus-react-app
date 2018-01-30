@@ -25,7 +25,8 @@ class Home extends Component {
 			mainArticles: [],
 			highlightStory: {},
 			newsArticles: [],
-			ushareArticles: []
+			ushareArticles: [],
+			eventsArticles: []
 		}
 	}
 
@@ -62,6 +63,33 @@ class Home extends Component {
 	    		})
 	    		
 	    	})
+
+	   	/** Get Roadmap, Roadshow, Seminar **/
+	   	fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/roadmap?filter[meta_key]=homepage&filter[meta_value]=true&per_page=2`)
+	    	.then(res => res.json())
+	    	.then(res => {
+	    		this.setState({
+	    			eventsArticles: res
+	    		})
+	    		
+	    		fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/roadshow?filter[meta_key]=homepage&filter[meta_value]=true&per_page=2`)
+			    	.then(res => res.json())
+			    	.then(res => {
+			    		this.setState({
+			    			eventsArticles: this.state.eventsArticles.concat(res)
+			    		})
+
+			    		fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/seminar?filter[meta_key]=homepage&filter[meta_value]=true&per_page=2`)
+					    	.then(res => res.json())
+					    	.then(res => {
+					    		this.setState({
+					    			eventsArticles: this.state.eventsArticles.concat(res)
+					    		})
+					    		
+					    	})
+			    		
+			    	})
+	    	})
 	}
 
 	render() {
@@ -97,6 +125,15 @@ class Home extends Component {
 			))
 		}else{
 			ushareArticles = null;
+		}
+
+		let eventsArticles;
+		if(this.state.eventsArticles.length > 0){
+			eventsArticles = this.state.eventsArticles.map((post,index) => (
+				<HomePostItem slug="ushare" post={post} key={`news-${index}`} index={index} />
+			))
+		}else{
+			eventsArticles = null;
 		}
 		return(
 			<div>
@@ -158,17 +195,7 @@ class Home extends Component {
               				</div>
               				<div class="col-sm-6 col-md-4 mar-top">
               					<ul class="list-primary">
-              						<li>
-              							<a href="https://www.foodfocusthailand.com/roadshow/2018/korat_feb.html" title="Food Safety Roadshow #1" target="_blank">
-              								<img src="https://www.foodfocusthailand.com/images/upload/1_RoadShow.jpg" alt="Food Safety Roadshow #1" />
-              								<span class="title-3-thumb">Food Safety Roadshow #1: วันศุกร์ที่ 9 กุมภาพันธ์ 2561 โรงแรมสีมาธานี จังหวัดนครราชสีมา</span>
-              							</a>
-              						</li>
-              						<li>
-              							<a href="https://www.foodfocusthailand.com/roadmap/2018/functional_mar.html" title="Food Safety Roadshow #1" target="_blank">
-              								<span class="title-3-thumb">See you in FFT Roadmap #42: Functional F&B Edition เปิดรับลงทะเบียนแล้ววันนี้!</span>
-              							</a>
-              						</li>
+              						{eventsArticles}
               					</ul>
               				</div>
               				<div class="col-sm-6 col-md-4 mar-top">

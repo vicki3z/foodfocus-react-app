@@ -3,7 +3,12 @@ import React from 'react';
 const HomePostItem = function(props){
     let imagePost;
     if(props.index == 0){
-        imagePost = <img src={props.post.better_featured_image.source_url} alt={props.post.title.rendered} />
+        if(props.post.better_featured_image != null){
+            imagePost = <img src={props.post.better_featured_image.source_url} alt={props.post.title.rendered} />
+        }else{
+            imagePost = <img src={props.post.acf.image} alt={props.post.title.rendered} />
+        }
+        
     }else{
         imagePost = null
     }
