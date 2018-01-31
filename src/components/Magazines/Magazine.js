@@ -42,6 +42,7 @@ class Magazine extends Component {
   				magazineActive: "fft"
   			})
   		}
+  		window.history.pushState("object or string", "Title", "/magazines/");
   	}
   	render() {
   		return (
@@ -81,10 +82,10 @@ class Magazine extends Component {
 			        	</h2>
 			        </div>
 			        <section data-tab-content className="magazine-tab-content pad-bot-lg">
-            			<div id="foodfocus" className="inner">
+            			<div id="foodfocus" className={this.state.magazineActive == "fft" ? "inner active": "inner"}>
             				<MagazineList magazineType="fft" />
             			</div>
-            			<div id="specialsup" className="inner">
+            			<div id="specialsup" className={this.state.magazineActive == "supplement" ? "inner active": "inner"}>
             				<MagazineList magazineType="supplement" />
             			</div>
             		</section>
