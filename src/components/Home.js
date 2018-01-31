@@ -17,10 +17,10 @@ class Home extends Component {
 				intro2: "THE NO.1 INDUSTRY-FOCUSED MAGAZINE FOR FOOD & BEVERAGE PROFESSIONALS"
 			},
 			magazine: {
-				issueMonth: "January 2018",
-				issueNo: "142",
-				image: "http://foodfocusthailand.com/images/upload/Food_Jan_142.jpg",
-				url: "https://www.foodfocusthailand.com/click.php?id=ebook-142"
+				issueMonth: "February 2018",
+				issueNo: "143",
+				image: "http://foodfocusthailand.com/images/upload/feb_143.jpg",
+				url: "http://www.foodfocusthailand.com/click.php?id=ebook-143"
 			},
 			mainArticles: [],
 			highlightStory: {},
@@ -159,14 +159,15 @@ class Home extends Component {
               				<div class="col-sm-6 col-md-4 mar-top">
               					<ul class="list-primary">
               						<li>
-              							<a href="https://www.foodfocusthailand.com/roadshow/2018/korat_feb.html" title="Food Safety Roadshow #1" target="_blank">
-              								<img src="https://www.foodfocusthailand.com/images/upload/1_RoadShow.jpg" alt="Food Safety Roadshow #1" />
-              								<span class="title-3-thumb">Food Safety Roadshow #1: วันศุกร์ที่ 9 กุมภาพันธ์ 2561 โรงแรมสีมาธานี จังหวัดนครราชสีมา</span>
+              							<a href="https://www.foodfocusthailand.com/roadmap/2018/functional_mar.html" title="FFT Roadmap #42" target="_blank">
+              								<img src="https://www.foodfocusthailand.com/images/upload/Functional_42.jpg" alt="FFT Roadmap #42" />
+              								<span class="title-3-thumb">See you in FFT Roadmap #42: Functional F&B Edition เปิดรับลงทะเบียนแล้ววันนี้!</span>
+              								
               							</a>
               						</li>
               						<li>
-              							<a href="https://www.foodfocusthailand.com/roadmap/2018/functional_mar.html" title="Food Safety Roadshow #1" target="_blank">
-              								<span class="title-3-thumb">See you in FFT Roadmap #42: Functional F&B Edition เปิดรับลงทะเบียนแล้ววันนี้!</span>
+              							<a href="https://www.foodfocusthailand.com/roadshow/2018/korat_feb.html" title="Food Safety Roadshow #1" target="_blank">
+              								<span class="title-3-thumb">Food Safety Roadshow #1: วันศุกร์ที่ 9 กุมภาพันธ์ 2561 โรงแรมสีมาธานี จังหวัดนครราชสีมา</span>
               							</a>
               						</li>
               					</ul>
