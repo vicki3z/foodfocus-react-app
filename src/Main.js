@@ -4,6 +4,7 @@ import Home from './components/Home.js';
 import RoadmapSubComponents from './components/Roadmaps/RoadmapSubComponents.js';
 import PostSubComponents from './components/Posts/PostSubComponents.js';
 import SearchList from './components/Posts/SearchList.js';
+import Magazine from './components/Magazines/Magazine.js';
 
 const Main = () => (
 	<div className="root responsivegrid">
@@ -16,6 +17,8 @@ const Main = () => (
 	    	<Route path="/whats-in" component={PostSubComponents} />
 	    	<Route path="/news" component={PostSubComponents} />
 	    	<Route path="/ushare" component={PostSubComponents} />
+
+	    	<Route path="/magazines" component={Magazine} />
 
 	    	<Route path="/search/:word" component={SearchList} />
 	    </main>
