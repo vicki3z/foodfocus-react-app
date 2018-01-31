@@ -56,8 +56,7 @@ class Magazine extends Component {
 			        </div>
 			        <div className="row-centered narrow">
 			        	<h2 className="title-primary-thumb mar-bot-md mar-top-md">
-			        		SUBSCRIBE FOR FREE 
-			        		<span><a href="https://goo.gl/forms/oP25aDCXWbNASbXh2" title="CLICK HERE" className="txt-black subscribe">CLICK HERE</a></span>
+			        		SUBSCRIBE FOR FREE <span><a href="https://goo.gl/forms/oP25aDCXWbNASbXh2" title="CLICK HERE" className="txt-black subscribe">CLICK HERE</a></span>
 			        	</h2>
 			        </div>
 			        <section data-tab-content className="magazine-tab-content pad-bot-lg">

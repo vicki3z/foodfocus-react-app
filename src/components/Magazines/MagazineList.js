@@ -24,11 +24,23 @@ class MagazineList extends Component {
 	    	})
   	}
   	render() {
+  		let magazineList;
+
+  		if(this.state.magazineList.length > 0){
+  			magazineList = this.state.magazineList.map((magazine,index) => (
+  				<MagazineItem magazine={magazine} key={`${this.props.magazineType}-${magazine.id}`} />
+  			))
+  		}else{
+  			return null;
+  		}
   		return (
   			<div className="inner-container">
                 <div className="row">
-                	<MagazineItem magazine={this.state.latestMagazine} />
+                	<MagazineItem magazine={this.state.latestMagazine} key={`${this.props.magazineType}-${this.state.latestMagazine.id}`} />
                 </div>
+				<div className="row">
+					{magazineList}
+				</div>
             </div>
   		)
   	}

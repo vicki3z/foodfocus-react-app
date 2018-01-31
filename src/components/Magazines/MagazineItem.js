@@ -25,7 +25,10 @@ const MagazineItem = function(props) {
                 </a>
                 <div className="caption">
                     <h2 className="title-1-thumb">No. {magazine.magazine_no}</h2>
-                    <h2 className="title-1-thumb">{magazine.title}</h2>
+                    <h2 className="title-1-thumb" 
+                        dangerouslySetInnerHTML={{
+                            __html: magazine.title
+                        }} />
                 </div>
             </article>
         </div>
