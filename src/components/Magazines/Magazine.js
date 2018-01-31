@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MagazineList from './MagazineList.js';
 
 class Magazine extends Component {
 	constructor() {
@@ -59,6 +60,14 @@ class Magazine extends Component {
 			        		<span><a href="https://goo.gl/forms/oP25aDCXWbNASbXh2" title="CLICK HERE" className="txt-black subscribe">CLICK HERE</a></span>
 			        	</h2>
 			        </div>
+			        <section data-tab-content class="magazine-tab-content pad-bot-lg">
+            			<div id="foodfocus" class="inner active">
+            				<MagazineList magazineType="fft" />
+            			</div>
+            			<div id="specialsup" class="inner">
+            				<MagazineList magazineType="supplement" />
+            			</div>
+            		</section>
 	            </section>
 	        </div>	
   		)
