@@ -15,12 +15,21 @@
 }
 
 /*=== Home Highlight Post ===*/
-.page #main-articles-wrapper .story .caption .desc > .text-mediumer-thumb {
+.page #main-articles-wrapper .story .caption .desc > .text-mediumer-thumb,
+.page #main-articles-wrapper .product figcaption .text-mediumer-thumb{
 	line-height: 1.3;
 }
 
 .page #main-articles-wrapper .thumb-default:hover, .page #main-articles-wrapper .story:hover {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.page #main-articles-wrapper .product .title-3-thumb {
+	font-weight: bold;
+}
+
+.page #main-articles-wrapper .product figcaption .text-mediumer-thumb {
+	font-size: 1.4em;
 }
 
 /*==== Homepage News & Activities ====*/
