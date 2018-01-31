@@ -34,18 +34,18 @@ class Header extends Component {
 				{
 					id: 5,
 					name: "Magazine",
-					url: "/magazine.html",
+					url: "/magazines",
 					submenu: [
 						{
 							id: 6,
 							name: "Food Focus Thailand Magazines",
-							url: "/magazine.html#foodfocus",
+							url: "/magazines/fft",
 							icon: "https://www.foodfocusthailand.com/images/icons/fft_magazine.png"
 						},
 						{
 							id: 7,
 							name: "Special Supplements",
-							url: "/magazine.html#specialsup",
+							url: "/magazine/supplement",
 							icon: "https://www.foodfocusthailand.com/images/icons/fft_supplement.png"
 						}
 					]
