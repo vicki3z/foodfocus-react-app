@@ -45,7 +45,7 @@ class Magazine extends Component {
 	                  </div>
 	                </section>
 	            </section>
-	            <section data-tab class="services-tab pad-top-lg magazine">
+	            <section data-tab className="services-tab pad-top-lg magazine">
 	            	<div data-tab-header data-activeByHash="true" className="row-centered narrow">
 	            		<a href="#foodfocus" title="" target="_blank" className="col active">
 	            			<img src="https://www.foodfocusthailand.com/images/icons/logo_foodfocus.png" alt="FFT Magazine" />
@@ -60,11 +60,11 @@ class Magazine extends Component {
 			        		<span><a href="https://goo.gl/forms/oP25aDCXWbNASbXh2" title="CLICK HERE" className="txt-black subscribe">CLICK HERE</a></span>
 			        	</h2>
 			        </div>
-			        <section data-tab-content class="magazine-tab-content pad-bot-lg">
-            			<div id="foodfocus" class="inner active">
+			        <section data-tab-content className="magazine-tab-content pad-bot-lg">
+            			<div id="foodfocus" className="inner active">
             				<MagazineList magazineType="fft" />
             			</div>
-            			<div id="specialsup" class="inner">
+            			<div id="specialsup" className="inner">
             				<MagazineList magazineType="supplement" />
             			</div>
             		</section>
