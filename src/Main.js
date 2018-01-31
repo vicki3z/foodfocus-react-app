@@ -18,7 +18,8 @@ const Main = () => (
 	    	<Route path="/news" component={PostSubComponents} />
 	    	<Route path="/ushare" component={PostSubComponents} />
 
-	    	<Route path="/magazines" component={Magazine} />
+			<Route path="/magazines" exact component={Magazine} />
+	    	<Route path="/magazines/:slug" component={Magazine} />
 
 	    	<Route path="/search/:word" component={SearchList} />
 	    </main>

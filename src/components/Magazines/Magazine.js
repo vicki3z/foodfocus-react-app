@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import MagazineList from './MagazineList.js';
 
 class Magazine extends Component {
-	constructor() {
-	    super();
+	constructor(props) {
+	    super(props);
 	    this.state = {
 	      	pageContent: "",
-	      	pageTitle: ""
+	      	pageTitle: "",
+	      	magazineActive: "fft"
 	    }
+	    this.setActive = this.setActive.bind(this);
+  	}
+  	componentWillMount() {
+  		this.setActiveFromSlug();
   	}
   	componentDidMount() {
 	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/pages?slug=food-focus-thailand-magazine`)
@@ -21,6 +26,22 @@ class Magazine extends Component {
 	    			pageTitle: pageInfo.title.rendered
 	    		})
 	    	})
+  	}
+  	setActive(active) {
+  		this.setState({
+			magazineActive: active
+		})
+  	}
+  	setActiveFromSlug() {
+  		if(this.props.match.params.slug == "supplement"){
+  			this.setState({
+  				magazineActive: "supplement"
+  			})
+  		}else{
+  			this.setState({
+  				magazineActive: "fft"
+  			})
+  		}
   	}
   	render() {
   		return (
@@ -46,11 +67,11 @@ class Magazine extends Component {
 	                </section>
 	            </section>
 	            <section data-tab className="services-tab pad-top-lg magazine">
-	            	<div data-tab-header data-activeByHash="true" className="row-centered narrow">
-	            		<a href="#foodfocus" title="" target="_blank" className="col active">
+	            	<div data-tab-header className="row-centered narrow">
+	            		<a href="#foodfocus" onClick={() => this.setActive("fft")} title="" target="_blank" className={this.state.magazineActive == "fft" ? "col active": "col"}>
 	            			<img src="https://www.foodfocusthailand.com/images/icons/logo_foodfocus.png" alt="FFT Magazine" />
 	            		</a>
-	            		<a href="#specialsup" title="" target="_blank" className="col">
+	            		<a href="#specialsup" onClick={() => this.setActive("supplement")} title="" target="_blank" className={this.state.magazineActive == "supplement" ? "col active": "col"}>
 	            			<img src="https://www.foodfocusthailand.com/images/icons/logo_suplement.png" alt="Supplement" />
 	            		</a>
 			        </div>
@@ -60,7 +81,7 @@ class Magazine extends Component {
 			        	</h2>
 			        </div>
 			        <section data-tab-content className="magazine-tab-content pad-bot-lg">
-            			<div id="foodfocus" className="inner active">
+            			<div id="foodfocus" className="inner">
             				<MagazineList magazineType="fft" />
             			</div>
             			<div id="specialsup" className="inner">
