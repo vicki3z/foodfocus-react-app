@@ -16,12 +16,7 @@ class Home extends Component {
 				intro1: "FOOD FOCUS THAILAND MAGAZINE",
 				intro2: "THE NO.1 INDUSTRY-FOCUSED MAGAZINE FOR FOOD & BEVERAGE PROFESSIONALS"
 			},
-			magazine: {
-				issueMonth: "January 2018",
-				issueNo: "142",
-				image: "http://foodfocusthailand.com/images/upload/Food_Jan_142.jpg",
-				url: "https://www.foodfocusthailand.com/click.php?id=ebook-142"
-			},
+			magazine: null,
 			mainArticles: [],
 			highlightStory: {},
 			newsArticles: [],
@@ -50,7 +45,6 @@ class Home extends Component {
 	    		this.setState({
 	    			newsArticles: res
 	    		})
-	    		console.log(this.state.newsArticles);
 	    	})
 
 	    /** Get 4 latest Ushare **/
@@ -90,6 +84,45 @@ class Home extends Component {
 			    		
 			    	})
 	    	})
+
+	    /** Get Latest FFT Magazine **/
+	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/magazines?filter[taxonomy]=magazine_type&filter[term]=fft&per_page=1`)
+	    	.then(res => res.json())
+	    	.then(res => {
+	    		this.setState({
+	    			magazine: res.shift()
+	    		})
+	    		
+	    	})
+	}
+
+	renderHeader(){
+		if(this.state.magazine != null){
+			return(
+				<div className="middle-block">
+					<div className="book-img">
+						<a href={this.state.magazine.acf.link} title={`No. ${this.state.magazine.acf.magazine_no}`} target="_blank">
+							<img src={this.state.magazine.acf.image} alt={`Food Focus Thailand Magazine No. ${this.state.magazine.acf.magazine_no}`} />
+						</a>
+					</div>
+					<div className="desc">
+						<h3 className="sub-title sub-title-bg txt-white">{this.state.siteInfo.welcome}</h3>
+						<h2 className="intro txt-white mar-top">{this.state.siteInfo.intro1}</h2>
+						<p className="content txt-white mar-top-xs">{this.state.siteInfo.intro2}</p>
+						<div className="latest-issue">
+							<div className="latest-issue-color mar-top"></div>
+	            			<div className="latest-issue-content mar-top">
+	            				<p className="sub-title txt-white">LATEST ISSUE</p>
+	            				<p className="sub-title-2 txt-white">{this.state.magazine.title.rendered.toUpperCase()}</p>
+	            			</div>
+						</div>
+						<Subscribe />
+					</div>
+				</div>
+			)
+		}else{
+			return null
+		}
 	}
 
 	render() {
@@ -142,26 +175,7 @@ class Home extends Component {
 						<div className="thumb"></div>
 						<div className="caption">
 							<div className="inner-container">
-								<div className="middle-block">
-									<div className="book-img">
-										<a href={this.state.magazine.url} title={`No. ${this.state.magazine.issueNo}`} target="_blank">
-											<img src={this.state.magazine.image} alt={`Food Focus Thailand Magazine No. ${this.state.magazine.issueNo}`} />
-										</a>
-									</div>
-									<div className="desc">
-										<h3 className="sub-title sub-title-bg txt-white">{this.state.siteInfo.welcome}</h3>
-										<h2 className="intro txt-white mar-top">{this.state.siteInfo.intro1}</h2>
-										<p className="content txt-white mar-top-xs">{this.state.siteInfo.intro2}</p>
-										<div className="latest-issue">
-											<div className="latest-issue-color mar-top"></div>
-	                            			<div className="latest-issue-content mar-top">
-	                            				<p className="sub-title txt-white">LATEST ISSUE</p>
-	                            				<p className="sub-title-2 txt-white">{this.state.magazine.issueMonth.toUpperCase()}</p>
-	                            			</div>
-										</div>
-										<Subscribe />
-									</div>
-								</div>
+								{this.renderHeader()}
 							</div>
 						</div>
 					</section>
@@ -185,21 +199,21 @@ class Home extends Component {
               				<div className="col-sm-12">
                 				<h2 className="title light">NEWS & ACTIVITIES</h2>
               				</div>
-              				<div class="col-sm-6 col-md-4 mar-top">
-              					<ul class="list-primary">
+              				<div className="col-sm-6 col-md-4 mar-top">
+              					<ul className="list-primary">
               						{newsArticles}
               					</ul>
               					<div className="mar-top">
               						<a href="/news" className="txt-black title-3-thumb">ดูข่าวอื่นๆ ></a>
               					</div>
               				</div>
-              				<div class="col-sm-6 col-md-4 mar-top">
-              					<ul class="list-primary">
+              				<div className="col-sm-6 col-md-4 mar-top">
+              					<ul className="list-primary">
               						{eventsArticles}
               					</ul>
               				</div>
-              				<div class="col-sm-6 col-md-4 mar-top">
-              					<ul class="list-primary">
+              				<div className="col-sm-6 col-md-4 mar-top">
+              					<ul className="list-primary">
               						{ushareArticles}
               					</ul>
               					<div className="mar-top">
