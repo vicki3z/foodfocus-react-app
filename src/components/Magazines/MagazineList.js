@@ -10,7 +10,7 @@ class MagazineList extends Component {
 	    }
   	}
   	componentDidMount() {
-	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/magazines?filter[taxonomy]=magazine_type&filter[term]=${this.props.magazineType}`)
+	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/magazines?filter[taxonomy]=magazine_type&filter[term]=${this.props.magazineType}&per_page=100`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
