@@ -45,7 +45,7 @@ class Header extends Component {
 						{
 							id: 7,
 							name: "Special Supplements",
-							url: "/magazine/supplement",
+							url: "/magazines/supplement",
 							icon: "https://www.foodfocusthailand.com/images/icons/fft_supplement.png"
 						}
 					]
