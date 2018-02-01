@@ -58,19 +58,19 @@ class Header extends Component {
 						{
 							id: 9,
 							name: "Roadmap",
-							url: "/roadmap.html",
+							url: "/roadmaps",
 							icon: "https://www.foodfocusthailand.com/images/icons/roadmap.png"
 						},
 						{
 							id: 10,
 							name: "Roadshow",
-							url: "/roadshow.html",
+							url: "/roadshows",
 							icon: "https://www.foodfocusthailand.com/images/icons/roadshow.png"
 						},
 						{
 							id: 11,
 							name: "Seminar & Conference",
-							url: "/seminar.html",
+							url: "/seminars",
 							icon: "https://www.foodfocusthailand.com/images/icons/seminar.png"
 						},
 						{
