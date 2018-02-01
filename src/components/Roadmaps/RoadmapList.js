@@ -16,13 +16,14 @@ class RoadmapList extends Component {
           this.setState({
             roadMapList: res
           })
+          console.log(res)
         })
   	}
 
     renderRoadMapItem(){
       if(this.state.roadMapList.length > 0){
         return this.state.roadMapList.map((post,index) => (
-          <RoadmapItem roadmap={post} key={`${this.props.roadMapSlug}-${index}`} mainSlug={this.props.roadMapSlug} />
+          <RoadmapItem roadmap={post} key={`${this.props.roadMapSlug}-${post.id}`} mainSlug={this.props.roadMapSlug} />
         ))
       }else{  
         return null;
