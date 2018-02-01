@@ -16,7 +16,6 @@ class RoadmapList extends Component {
           this.setState({
             roadMapList: res
           })
-          console.log(res)
         })
   	}
 
@@ -26,7 +25,16 @@ class RoadmapList extends Component {
           <RoadmapItem roadmap={post} key={`${this.props.roadMapSlug}-${post.id}`} mainSlug={this.props.roadMapSlug} />
         ))
       }else{  
-        return null;
+        if(this.props.index == 0){
+          return (
+            <div className="col-sm-12 mar-top">
+              <h2>COMING SOON</h2>
+            </div>
+          );
+        }else{
+          return null
+        }
+        
       }
     }
   	render() {
