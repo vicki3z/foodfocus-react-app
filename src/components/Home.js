@@ -163,7 +163,7 @@ class Home extends Component {
 		let eventsArticles;
 		if(this.state.eventsArticles.length > 0){
 			eventsArticles = this.state.eventsArticles.map((post,index) => (
-				<HomePostItem slug="ushare" post={post} key={`news-${index}`} index={index} />
+				<HomePostItem slug={`${post.type}s`} post={post} key={`news-${index}`} index={index} />
 			))
 		}else{
 			eventsArticles = null;
