@@ -10,7 +10,7 @@ class RoadmapList extends Component {
   	}
   	componentDidMount() {
   		/* get all event_year */
-      fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/${this.props.roadMapType}?event_year=${this.props.year.id}`)
+      fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/${this.props.roadMapType}?event_year=${this.props.year.id}&order=asc`)
         .then(res => res.json())
         .then(res => {
           this.setState({
@@ -22,10 +22,19 @@ class RoadmapList extends Component {
     renderRoadMapItem(){
       if(this.state.roadMapList.length > 0){
         return this.state.roadMapList.map((post,index) => (
-          <RoadmapItem roadmap={post} key={`${this.props.roadMapSlug}-${index}`} mainSlug={this.props.roadMapSlug} />
+          <RoadmapItem roadmap={post} key={`${this.props.roadMapSlug}-${post.id}`} mainSlug={this.props.roadMapSlug} />
         ))
       }else{  
-        return null;
+        if(this.props.index == 0){
+          return (
+            <div className="col-sm-12 mar-top">
+              <h2>COMING SOON</h2>
+            </div>
+          );
+        }else{
+          return null
+        }
+        
       }
     }
   	render() {
