@@ -31,7 +31,8 @@ class TopBanners extends Component {
 	      	infinite: true,
 	      	slidesToShow: 1,
 	      	slidesToScroll: 1,
-	      	dots: true
+	      	dots: true,
+	      	autoplaySpeed: 2500
 		}
 		return (
 			<div className="wrapper pad-top-min pad-bot-md" id="top-banner">

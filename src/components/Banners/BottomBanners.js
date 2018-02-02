@@ -33,13 +33,13 @@ class BottomBanners extends Component {
 	        mobileFirst: true,
 	        variableWidth: true,
 	        slidesToShow: 4,
-	        slidesToScroll: 1,
+	        slidesToScroll: 2,
 	        responsive: [{
 	            breakpoint: 768,
 	            settings: {
 	            	infinite: true,
 	                slidesToShow: 4,
-	                slidesToScroll: 1,
+	                slidesToScroll: 2,
 	                dots: false
 	            }
 	        },
