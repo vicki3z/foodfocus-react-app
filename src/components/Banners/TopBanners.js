@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick'
+import { Config } from "../../config.js";
 
 class TopBanners extends Component {
 	constructor() {
@@ -10,7 +11,7 @@ class TopBanners extends Component {
 	}
 	componentDidMount() {
 		/** Get only top banners **/
-		fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/banner?position=14&order=asc`)
+		fetch(`${Config.apiUrl}/wp-json/wp/v2/banner?position=14&order=asc`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({

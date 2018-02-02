@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MagazineList from './MagazineList.js';
+import { Config } from "../../config.js";
 
 class Magazine extends Component {
 	constructor(props) {
@@ -15,7 +16,7 @@ class Magazine extends Component {
   		this.setActiveFromSlug();
   	}
   	componentDidMount() {
-	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/pages?slug=food-focus-thailand-magazine`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/pages?slug=food-focus-thailand-magazine`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		var pageInfo = res.shift()

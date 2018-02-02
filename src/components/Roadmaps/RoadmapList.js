@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RoadmapItem from './RoadmapItem.js'
+import { Config } from "../../config.js";
 
 class RoadmapList extends Component {
 	constructor(props) {
@@ -10,7 +11,7 @@ class RoadmapList extends Component {
   	}
   	componentDidMount() {
   		/* get all event_year */
-      fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/${this.props.roadMapType}?event_year=${this.props.year.id}&order=asc`)
+      fetch(`${Config.apiUrl}/wp-json/wp/v2/${this.props.roadMapType}?event_year=${this.props.year.id}&order=asc`)
         .then(res => res.json())
         .then(res => {
           this.setState({

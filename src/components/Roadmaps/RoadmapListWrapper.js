@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RoadmapList from './RoadmapList.js'
+import { Config } from "../../config.js";
 
 class RoadmapListWrapper extends Component {
 	constructor(props) {
@@ -43,7 +44,7 @@ class RoadmapListWrapper extends Component {
   	}
   	componentDidMount() {
   		/* get page info */
-  		fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/pages?slug=${this.state.pageInfoSlug}`)
+  		fetch(`${Config.apiUrl}/wp-json/wp/v2/pages?slug=${this.state.pageInfoSlug}`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		var pageInfo = res.shift();
@@ -56,7 +57,7 @@ class RoadmapListWrapper extends Component {
 	    	})
 
 	    /* get all event_year */
-	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/event_year?order=desc`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/event_year?order=desc`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({

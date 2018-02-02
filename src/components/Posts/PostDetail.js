@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SidePostItem from '../Posts/SidePostItem.js'
+import { Config } from "../../config.js";
 
 class PostDetail extends Component {
 	constructor(props) {
@@ -33,7 +34,7 @@ class PostDetail extends Component {
   		this.setPostTypeSlug();
   	}
   	componentDidMount() {
-	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?slug=${this.props.match.params.slug}`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?slug=${this.props.match.params.slug}`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
@@ -49,7 +50,7 @@ class PostDetail extends Component {
 	    	})
 
 	    //Get other posts
-	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?filter[category_name]=${this.state.postCategoryName}&per_page=3`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=${this.state.postCategoryName}&per_page=3`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({

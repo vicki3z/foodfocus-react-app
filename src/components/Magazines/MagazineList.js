@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MagazineItem from './MagazineItem.js'
+import { Config } from "../../config.js";
 
 class MagazineList extends Component {
 	constructor(props) {
@@ -10,7 +11,7 @@ class MagazineList extends Component {
 	    }
   	}
   	componentDidMount() {
-	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/magazines?filter[taxonomy]=magazine_type&filter[term]=${this.props.magazineType}&per_page=100`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/magazines?filter[taxonomy]=magazine_type&filter[term]=${this.props.magazineType}&per_page=100`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({

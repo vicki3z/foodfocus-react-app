@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostItem from '../Posts/PostItem.js';
+import { Config } from "../../config.js";
 
 class SearchList extends Component {
 	constructor(props) {
@@ -11,7 +12,7 @@ class SearchList extends Component {
   	}
   	
   	componentDidMount() {
-  		fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?search=${this.props.match.params.word}`)
+  		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?search=${this.props.match.params.word}`)
         .then(res => res.json())
         .then(res => {
           console.log("post")
@@ -25,7 +26,7 @@ class SearchList extends Component {
           }
           
         })
-      fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/roadmap?search=${this.props.match.params.word}`)
+      fetch(`${Config.apiUrl}/wp-json/wp/v2/roadmap?search=${this.props.match.params.word}`)
         .then(res => res.json())
         .then(res => {
           console.log("roadmap")
@@ -38,7 +39,7 @@ class SearchList extends Component {
             this.setState({postList: res})
           }
         })
-      fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/roadshow?search=${this.props.match.params.word}`)
+      fetch(`${Config.apiUrl}/wp-json/wp/v2/roadshow?search=${this.props.match.params.word}`)
         .then(res => res.json())
         .then(res => {
           console.log("roadshow")
@@ -51,7 +52,7 @@ class SearchList extends Component {
             this.setState({postList: res})
           }
         })
-      fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/seminar?search=${this.props.match.params.word}`)
+      fetch(`${Config.apiUrl}/wp-json/wp/v2/seminar?search=${this.props.match.params.word}`)
         .then(res => res.json())
         .then(res => {
           console.log("seminar")
