@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SidePostItem from '../Posts/SidePostItem.js'
 
 class PostDetail extends Component {
 	constructor(props) {
@@ -60,19 +61,7 @@ class PostDetail extends Component {
   	renderOtherArticles() {
   		if(this.state.otherArticles.length > 0){
   			return this.state.otherArticles.map((post, index) =>(
-  				<div className="col-md-12 col-sm-6">
-                  <div className="content-item">
-                  	<a href={`/${this.state.postTypeSlug}/${post.slug}`} title={post.title.rendered}>
-                  		<span className="visual-img">
-                  			<img src={post.better_featured_image.source_url} alt={post.title.rendered} />
-                  		</span>
-                  		<span className="text txt-black" 
-                  			dangerouslySetInnerHTML={{
-                  				__html: post.title.rendered
-                  			}} />
-                  	</a>
-                  </div>
-                </div>
+  				<SidePostItem key={`${this.state.postTypeSlug}-${post.id}`} post={post} postTypeSlug={this.state.postTypeSlug} />
   			))
   		}else{
   			return null;
