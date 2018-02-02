@@ -191,6 +191,13 @@ class Home extends Component {
               				</div>
               				{mainArticles}
 						</div>
+						<div className="row mar-top" id="see-all">
+							<div className="col-md-offset-10 col-md-2">
+	      						<a href="/whats-in">
+	      							<h3 className="sub-title-bg txt-white" id="highlight-see-all">See All</h3>
+	      						</a>
+	      					</div>
+      					</div>
 					</div>
 				</div>
 				<div className="wrapper pad-bot-lg pad-top-lg" id="other-articles-wrapper">
@@ -203,8 +210,10 @@ class Home extends Component {
               					<ul className="list-primary">
               						{newsArticles}
               					</ul>
-              					<div className="mar-top">
-              						<a href="/news" className="txt-black title-3-thumb">ดูข่าวอื่นๆ ></a>
+              					<div className="mar-top" id="see-all">
+              						<a href="/news">
+              							<h3 className="sub-title-bg txt-white col-md-3 col-sm-3">See All</h3>
+              						</a>
               					</div>
               				</div>
               				<div className="col-sm-6 col-md-4 mar-top">
@@ -216,8 +225,10 @@ class Home extends Component {
               					<ul className="list-primary">
               						{ushareArticles}
               					</ul>
-              					<div className="mar-top">
-              						<a href="/ushare" className="txt-black title-3-thumb">ดูประกาศอื่นๆ ></a>
+              					<div className="mar-top" id="see-all">
+              						<a href="/ushare">
+              							<h3 className="sub-title-bg txt-white col-md-3 col-sm-3">See All</h3>
+              						</a>
               					</div>
               				</div>
               				<BottomBanners />

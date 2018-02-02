@@ -92,13 +92,13 @@ class PostDetail extends Component {
 	                	}}
 	              	/>
                 </div>
-                <div className="col-md-3 col-xs-12">
+                <div className="col-md-3 col-xs-12" id="side-articles">
                 	<div className="col-sm-12">
                     	<h2 className="title">Other Articles</h2>
                     	{this.renderOtherArticles()}
-                    	<div className="col-sm-12 mar-top">
+                    	<div className="col-sm-12 mar-top" id="see-all">
                     		<a href={`/${this.state.postTypeSlug}`}>
-                    			<span className="txt-black see-all">See all ></span>
+                    			<h3 className="sub-title-bg txt-white col-md-6">See All</h3>
                     		</a>
                     	</div>
                 	</div>

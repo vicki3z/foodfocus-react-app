@@ -99,9 +99,9 @@ class RoadmapDetail extends Component {
 		                	<div className="col-sm-12">
 		                    	<h2 className="title">Other Events</h2>
 		                    	{this.renderOtherArticles()}
-		                    	<div className="col-sm-12 mar-top">
+		                    	<div className="col-sm-12 mar-top" id="see-all">
 		                    		<a href={`/${this.state.postTypeSlug}`}>
-		                    			<span className="txt-black see-all">See all ></span>
+		                    			<h3 className="sub-title-bg txt-white col-md-6">See All</h3>
 		                    		</a>
 		                    	</div>
 		                	</div>

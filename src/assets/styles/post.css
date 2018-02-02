@@ -26,3 +26,14 @@
 .page .list:hover .text{
   text-decoration: underline;
 }
+
+/*== See All CTA ==*/
+.page #see-all .sub-title-bg {
+  padding: 10px;
+}
+.page #see-all .sub-title-bg#highlight-see-all{
+  text-align: center;
+}
+
+.page #side-articles #see-all .sub-title-bg {
+}
