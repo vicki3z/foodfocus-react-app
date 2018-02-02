@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SidePostItem from '../Posts/SidePostItem.js'
 
 class RoadmapDetail extends Component {
 	constructor(props) {
@@ -9,7 +10,8 @@ class RoadmapDetail extends Component {
 	      	postDate: "",
 	      	postContent: "",
 	      	roadMapType: "",
-	      	roadMapSlug: ""
+	      	roadMapSlug: "",
+	      	otherArticles: []
 	    }
   	}
   	setRoadmapType() {
@@ -53,6 +55,25 @@ class RoadmapDetail extends Component {
 	    		})
 	    		
 	    	})
+
+	    //Get other posts
+	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/${this.state.roadMapType}?per_page=3`)
+	    	.then(res => res.json())
+	    	.then(res => {
+	    		this.setState({
+	    			otherArticles: res
+	    		})
+	    		
+	    	})
+  	}
+  	renderOtherArticles() {
+  		if(this.state.otherArticles.length > 0){
+  			return this.state.otherArticles.map((post, index) =>(
+  				<SidePostItem key={`${this.state.postTypeSlug}-${post.id}`} post={post} postTypeSlug={this.state.postTypeSlug} />
+  			))
+  		}else{
+  			return null;
+  		}
   	}
   	render() {
   		return (
@@ -77,6 +98,12 @@ class RoadmapDetail extends Component {
 		                <div className="col-md-3 col-xs-12">
 		                	<div className="col-sm-12">
 		                    	<h2 className="title">Other Events</h2>
+		                    	{this.renderOtherArticles()}
+		                    	<div className="col-sm-12 mar-top">
+		                    		<a href={`/${this.state.postTypeSlug}`}>
+		                    			<span className="txt-black see-all">See all ></span>
+		                    		</a>
+		                    	</div>
 		                	</div>
 		                </div>
 				    </div>
