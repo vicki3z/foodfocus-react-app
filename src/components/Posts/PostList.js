@@ -32,7 +32,7 @@ class PostList extends Component {
   	}
   	componentDidMount() {
   		
-	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=${this.state.postType}`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=${this.state.postType}&per_page=100`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({

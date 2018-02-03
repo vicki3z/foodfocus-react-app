@@ -12,7 +12,7 @@ class SearchList extends Component {
   	}
   	
   	componentDidMount() {
-  		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?search=${this.props.match.params.word}`)
+  		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?search=${this.props.match.params.word}&per_page=20`)
         .then(res => res.json())
         .then(res => {
           if(this.state.postList.length > 0){
@@ -22,7 +22,7 @@ class SearchList extends Component {
           }
           
         })
-      fetch(`${Config.apiUrl}/wp-json/wp/v2/roadmap?search=${this.props.match.params.word}`)
+      fetch(`${Config.apiUrl}/wp-json/wp/v2/roadmap?search=${this.props.match.params.word}&per_page=20`)
         .then(res => res.json())
         .then(res => {
           if(this.state.postList.length > 0){
@@ -31,7 +31,7 @@ class SearchList extends Component {
             this.setState({postList: res})
           }
         })
-      fetch(`${Config.apiUrl}/wp-json/wp/v2/roadshow?search=${this.props.match.params.word}`)
+      fetch(`${Config.apiUrl}/wp-json/wp/v2/roadshow?search=${this.props.match.params.word}&per_page=20`)
         .then(res => res.json())
         .then(res => {
           if(this.state.postList.length > 0){
@@ -40,7 +40,7 @@ class SearchList extends Component {
             this.setState({postList: res})
           }
         })
-      fetch(`${Config.apiUrl}/wp-json/wp/v2/seminar?search=${this.props.match.params.word}`)
+      fetch(`${Config.apiUrl}/wp-json/wp/v2/seminar?search=${this.props.match.params.word}&per_page=20`)
         .then(res => res.json())
         .then(res => {
           if(this.state.postList.length > 0){
