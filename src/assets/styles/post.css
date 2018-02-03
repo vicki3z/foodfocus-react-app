@@ -27,6 +27,16 @@
   text-decoration: underline;
 }
 
+.page .list .img-wrapper {
+  min-height: 132px;
+  text-align: center;
+}
+
+.page .list .img-wrapper img {
+  vertical-align: middle;
+  min-height: 132px;
+}
+
 /*== See All CTA ==*/
 .page #see-all .sub-title-bg {
   padding: 10px;

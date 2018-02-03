@@ -28,7 +28,7 @@ const PostItem = function(props) {
   return(
   	   <a href={`/${slug}/${props.post.slug}`}>
           <div className="row list mar-bot">
-            	<div className="col-md-2">
+            	<div className="col-md-2 img-wrapper">
               	<span className="visual-img">
                 		<img src={imgSource} alt="" />
               	</span>
