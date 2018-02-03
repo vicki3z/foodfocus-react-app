@@ -11,7 +11,7 @@ class RoadmapList extends Component {
   	}
   	componentDidMount() {
   		/* get all event_year */
-      fetch(`${Config.apiUrl}/wp-json/wp/v2/${this.props.roadMapType}?event_year=${this.props.year.id}&order=asc`)
+      fetch(`${Config.apiUrl}/wp-json/wp/v2/${this.props.roadMapType}?event_year=${this.props.year.id}&order=asc&per_page=100`)
         .then(res => res.json())
         .then(res => {
           this.setState({
