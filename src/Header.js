@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchComponent from './SearchComponent.js'
 
 class Header extends Component {
 	constructor() {
@@ -33,18 +34,18 @@ class Header extends Component {
 				{
 					id: 5,
 					name: "Magazine",
-					url: "/magazine.html",
+					url: "/magazines",
 					submenu: [
 						{
 							id: 6,
 							name: "Food Focus Thailand Magazines",
-							url: "/magazine.html#foodfocus",
+							url: "/magazines/fft",
 							icon: "https://www.foodfocusthailand.com/images/icons/fft_magazine.png"
 						},
 						{
 							id: 7,
 							name: "Special Supplements",
-							url: "/magazine.html#specialsup",
+							url: "/magazines/supplement",
 							icon: "https://www.foodfocusthailand.com/images/icons/fft_supplement.png"
 						}
 					]
@@ -57,19 +58,19 @@ class Header extends Component {
 						{
 							id: 9,
 							name: "Roadmap",
-							url: "/roadmap.html",
+							url: "/roadmaps",
 							icon: "https://www.foodfocusthailand.com/images/icons/roadmap.png"
 						},
 						{
 							id: 10,
 							name: "Roadshow",
-							url: "/roadshow.html",
+							url: "/roadshows",
 							icon: "https://www.foodfocusthailand.com/images/icons/roadshow.png"
 						},
 						{
 							id: 11,
 							name: "Seminar & Conference",
-							url: "/seminar.html",
+							url: "/seminars",
 							icon: "https://www.foodfocusthailand.com/images/icons/seminar.png"
 						},
 						{
@@ -202,14 +203,7 @@ class Header extends Component {
 		            	</a>
 		            	<div className="right-header">
               				<section className="search-block small hidden-xs hidden-sm">
-                				<form action="#" method="get" name="search-form" id="search-form">
-                					<a href="#" target="_blank">
-                						<img src="https://www.foodfocusthailand.com/images/icons/ic-search.svg" alt="undefined" />
-                					</a>
-		                  			<div className="search-input">
-		                          		<input type="text" name="search-input" id="search-input" placeholder="Coming Soon..." />
-		                  			</div>
-	                			</form>
+                				<SearchComponent />
               				</section>
               				<nav className="global-nav hidden-xs hidden-sm">
                 				<ul>

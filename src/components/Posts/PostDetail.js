@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SidePostItem from '../Posts/SidePostItem.js'
+import { Config } from "../../config.js";
 
 class PostDetail extends Component {
 	constructor(props) {
@@ -32,7 +34,7 @@ class PostDetail extends Component {
   		this.setPostTypeSlug();
   	}
   	componentDidMount() {
-	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?slug=${this.props.match.params.slug}`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?slug=${this.props.match.params.slug}`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
@@ -48,7 +50,7 @@ class PostDetail extends Component {
 	    	})
 
 	    //Get other posts
-	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?filter[category_name]=${this.state.postCategoryName}&per_page=3`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=${this.state.postCategoryName}&per_page=3`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
@@ -60,19 +62,7 @@ class PostDetail extends Component {
   	renderOtherArticles() {
   		if(this.state.otherArticles.length > 0){
   			return this.state.otherArticles.map((post, index) =>(
-  				<div className="col-md-12 col-sm-6">
-                  <div className="content-item">
-                  	<a href={`/${this.state.postTypeSlug}/${post.slug}`} title={post.title.rendered}>
-                  		<span className="visual-img">
-                  			<img src={post.better_featured_image.source_url} alt={post.title.rendered} />
-                  		</span>
-                  		<span className="text txt-black" 
-                  			dangerouslySetInnerHTML={{
-                  				__html: post.title.rendered
-                  			}} />
-                  	</a>
-                  </div>
-                </div>
+  				<SidePostItem key={`${this.state.postTypeSlug}-${post.id}`} post={post} postTypeSlug={this.state.postTypeSlug} />
   			))
   		}else{
   			return null;
@@ -103,13 +93,13 @@ class PostDetail extends Component {
 	                	}}
 	              	/>
                 </div>
-                <div className="col-md-3 col-xs-12">
+                <div className="col-md-3 col-xs-12" id="side-articles">
                 	<div className="col-sm-12">
                     	<h2 className="title">Other Articles</h2>
                     	{this.renderOtherArticles()}
-                    	<div className="col-sm-12 mar-top">
+                    	<div className="col-sm-12 mar-top" id="see-all">
                     		<a href={`/${this.state.postTypeSlug}`}>
-                    			<span className="txt-black see-all">See all ></span>
+                    			<h3 className="sub-title-bg txt-white col-md-6">See All</h3>
                     		</a>
                     	</div>
                 	</div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostItem from '../Posts/PostItem.js';
+import { Config } from "../../config.js";
 
 class PostList extends Component {
 	constructor(props) {
@@ -31,7 +32,7 @@ class PostList extends Component {
   	}
   	componentDidMount() {
   		
-	    fetch(`https://www.foodfocusthailand.com/wp-cms/wp-json/wp/v2/posts?filter[category_name]=${this.state.postType}`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=${this.state.postType}`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
