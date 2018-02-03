@@ -15,12 +15,8 @@ class SearchList extends Component {
   		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?search=${this.props.match.params.word}`)
         .then(res => res.json())
         .then(res => {
-          console.log("post")
-          console.log(res);
           if(this.state.postList.length > 0){
-            console.log("concat")
             this.setState({postList: this.state.postList.concat(res)})
-            console.log(this.state.postList)
           }else{
             this.setState({postList: res})
           }
@@ -29,12 +25,8 @@ class SearchList extends Component {
       fetch(`${Config.apiUrl}/wp-json/wp/v2/roadmap?search=${this.props.match.params.word}`)
         .then(res => res.json())
         .then(res => {
-          console.log("roadmap")
-          console.log(res);
           if(this.state.postList.length > 0){
-            console.log("concat")
             this.setState({postList: this.state.postList.concat(res)})
-            console.log(this.state.postList)
           }else{
             this.setState({postList: res})
           }
@@ -42,12 +34,8 @@ class SearchList extends Component {
       fetch(`${Config.apiUrl}/wp-json/wp/v2/roadshow?search=${this.props.match.params.word}`)
         .then(res => res.json())
         .then(res => {
-          console.log("roadshow")
-          console.log(res);
           if(this.state.postList.length > 0){
-            console.log("concat")
             this.setState({postList: this.state.postList.concat(res)})
-            console.log(this.state.postList)
           }else{
             this.setState({postList: res})
           }
@@ -55,12 +43,8 @@ class SearchList extends Component {
       fetch(`${Config.apiUrl}/wp-json/wp/v2/seminar?search=${this.props.match.params.word}`)
         .then(res => res.json())
         .then(res => {
-          console.log("seminar")
-          console.log(res);
           if(this.state.postList.length > 0){
-            console.log("concat")
             this.setState({postList: this.state.postList.concat(res)})
-            console.log(this.state.postList)
           }else{
             this.setState({postList: res})
           }

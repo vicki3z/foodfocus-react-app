@@ -37,6 +37,11 @@
   min-height: 132px;
 }
 
+.page .list .sub-title-bg {
+  font-size: 1em;
+  padding: 10px;
+}
+
 /*== See All CTA ==*/
 .page #see-all .sub-title-bg {
   padding: 10px;
