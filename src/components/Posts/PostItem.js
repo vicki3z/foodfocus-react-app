@@ -42,6 +42,7 @@ const PostItem = function(props) {
               			__html: props.post.title.rendered
               		}}
               	/>
+                <p className="text-mediumer-thumb txt-black">{props.post.acf.summary}</p>
             	</div>
           </div>
       </a>
