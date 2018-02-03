@@ -20,8 +20,6 @@ class MagazineList extends Component {
 	    		this.setState({
 	    			magazineList: res
 	    		})
-	    		console.log(this.state.latestMagazine);
-	    		console.log(this.state.magazineList);
 	    	})
   	}
   	render() {

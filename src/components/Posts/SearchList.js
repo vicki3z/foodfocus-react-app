@@ -51,8 +51,6 @@ class SearchList extends Component {
         })
   	}
   	renderPostItem() {
-      console.log("render")
-      console.log(this.state.postList)
       if(this.state.postList.length > 0){
         return this.state.postList.map((post,index)=>(
           <PostItem post={post} key={`post-${index}`} />
