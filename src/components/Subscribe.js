@@ -24,15 +24,15 @@ class Subscribe extends Component {
            type: "POST",
            url: "http://www.foodfocusthailand.com/email.php",
            data: {email: this.state.email},
-           dataType: "json"
-        }).done(function(res){
-          console.log(res);
-          if(res.success){
-            alert('Thank you for subscribing to our newsletter');
-            this.setState({email: ""})
-          }else{
-            alert('Please refresh the page and try again. Sorry for the inconvenience.');
-          }
+           dataType: "json",
+           success: function(res){
+              if(res.success){
+                this.setState({email: ""})
+                alert('Thank you for subscribing to our newsletter');
+              }else{
+                alert('Please refresh the page and try again. Sorry for the inconvenience.');
+              }
+           }.bind(this)
         });
       }else{
         alert("Please enter your email.")
