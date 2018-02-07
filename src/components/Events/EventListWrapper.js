@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import { Config } from "../../config.js";
+import EventList from "./EventList.js";
 
 class EventListWrapper extends Component {
 	constructor(props) {
 	    super(props);
 	    this.state = {
-	    	pageInfoSlug: 'exhibition'
+	    	pageInfoSlug: 'exhibition',
+	    	year: '',
+	    	month: ''
 	    }
+  	}
+  	componentWillMount(){
+  		var today = new Date();
+  		const month = today.getMonth()+1
+  		const year = today.getFullYear();
+  		console.log('Month: '+month);
+  		console.log('Year: '+year);
   	}
   	componentDidMount() {
   		/* get page info */
@@ -22,11 +32,6 @@ class EventListWrapper extends Component {
 	    		})
 	    	})
 
-  	}
-  	setYearActive(yearId) {
-  		this.setState({
-  			yearActive: yearId
-  		})
   	}
   	render() {
   		return (
@@ -124,6 +129,18 @@ class EventListWrapper extends Component {
 			                	</div>
 			              	</div>
 	            		</div>
+	          		</div>
+	          		<div className="outer">
+	          			<div className="inner-container">
+	          				<div className="row">
+	          					<div className="col-md-5">
+	          						<h2 className="title-primary light mar-bot">CALENDAR</h2>
+	          					</div>
+	          					<div className="col-md-7 col-sm-12">
+	          					</div>
+	          					<EventList month={this.state.month} year={this.state.year}  />
+	          				</div>
+	          			</div>
 	          		</div>
 	          	</div>
 	        </div>	
