@@ -5,6 +5,7 @@ import RoadmapSubComponents from './components/Roadmaps/RoadmapSubComponents.js'
 import PostSubComponents from './components/Posts/PostSubComponents.js';
 import SearchList from './components/Posts/SearchList.js';
 import Magazine from './components/Magazines/Magazine.js';
+import EventListWrapper from './components/Events/EventListWrapper.js';
 
 const Main = () => (
 	<div className="root responsivegrid">
@@ -13,6 +14,7 @@ const Main = () => (
 	    	<Route path="/roadmaps" component={RoadmapSubComponents} />
 	    	<Route path="/roadshows" component={RoadmapSubComponents} />
 	    	<Route path="/seminars" component={RoadmapSubComponents} />
+	    	<Route path="/event-exhibition" exact component={EventListWrapper} />
 	    	
 	    	<Route path="/whats-in" component={PostSubComponents} />
 	    	<Route path="/news" component={PostSubComponents} />
