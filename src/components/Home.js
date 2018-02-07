@@ -146,7 +146,7 @@ class Home extends Component {
 		let newsArticles;
 		if(this.state.newsArticles.length > 0){
 			newsArticles = this.state.newsArticles.map((post,index) => (
-				<HomePostItem slug="news" post={post} key={`news-${index}`} index={index} />
+				<HomePostItem slug="news" post={post} key={`news-${post.id}`} index={index} />
 			))
 		}else{
 			newsArticles = null;
@@ -155,7 +155,7 @@ class Home extends Component {
 		let ushareArticles;
 		if(this.state.ushareArticles.length > 0){
 			ushareArticles = this.state.ushareArticles.map((post,index) => (
-				<HomePostItem slug="ushare" post={post} key={`news-${index}`} index={index} />
+				<HomePostItem slug="ushare" post={post} key={`ushare-${post.id}`} index={index} />
 			))
 		}else{
 			ushareArticles = null;
@@ -164,7 +164,7 @@ class Home extends Component {
 		let eventsArticles;
 		if(this.state.eventsArticles.length > 0){
 			eventsArticles = this.state.eventsArticles.map((post,index) => (
-				<HomePostItem slug={`${post.type}s`} post={post} key={`news-${index}`} index={index} />
+				<HomePostItem slug={`${post.type}s`} post={post} key={`event-${post.id}`} index={index} />
 			))
 		}else{
 			eventsArticles = null;
