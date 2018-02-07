@@ -14,7 +14,7 @@ const HomePostItem = function(props){
     }
 
     let summary;
-    if(props.post.acf.summary != ""){
+    if(props.post.acf.summary != "" && props.slug != "news"){
         summary = props.post.acf.summary
     }else{
         summary = props.post.title.rendered
