@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Config } from "../../config.js";
+import EventItem from "./EventItem.js";
 
 class EventList extends Component {
 	constructor(props) {
@@ -68,11 +69,18 @@ class EventList extends Component {
       }
     }
 
+    renderEventItem(events) {
+      return events.map((event) => (
+        <EventItem event={event} />
+      ))
+    }
+
   	render() {
       var eventList = this.state.eventList.map((eventObj) => (
         <div className="col-xs-12">
           <p className="text-large txt-black mar-bot">{eventObj.month.toUpperCase()}</p>
           <ul>
+            {this.renderEventItem(eventObj.list)}
           </ul>
         </div>
       ))
