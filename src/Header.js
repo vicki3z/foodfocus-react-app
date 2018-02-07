@@ -124,7 +124,7 @@ class Header extends Component {
 
 	renderSubMenuItem(submenus){
 		return submenus.map((menu,index) => (
-			<li>
+			<li key={`sub-menu-${menu.id}`}>
 				<a href={menu.url} title={menu.name}>
 					<span className="visual-img">
 						<img src={menu.icon} alt={menu.name} />
@@ -137,7 +137,7 @@ class Header extends Component {
 
 	renderMenuItem() {
 		return this.state.menus.map((menu,index) => (
-			<li className={menu.submenu.length > 0 ? "has-sub" : ""}>
+			<li key={`menu-${menu.id}`} className={menu.submenu.length > 0 ? "has-sub" : ""}>
 				<a href={menu.url} title={menu.name}>{menu.name}</a>
 				{menu.submenu.length > 0 &&
 					<div className="mega-menu">
@@ -158,7 +158,7 @@ class Header extends Component {
 
 	renderMobileMenu() {
 		return this.state.menus.map((menu,index) => (
-			<div className="collapse-item">
+			<div className="collapse-item" key={`menu-${menu.id}`}>
 				<h3 className={menu.submenu.length > 0 ? "collapse-header" : "collapse-header no-content"}>
 					<a href={menu.url} title={menu.name}>
 						{menu.name}
@@ -171,7 +171,7 @@ class Header extends Component {
 	                    		<div className="level-1">
 	                      			<ul>
 	                      				{menu.submenu.map((sub,index) => (
-	                      					<li>
+	                      					<li key={`sub-menu-${sub.id}`}>
                       							<a href={sub.url} title={sub.name} className="level-1-title">
                       								{sub.name}
                       							</a>

@@ -11,7 +11,7 @@ const HomeMainPost = function(props){
                     <div style={styleSetting} className="thumb"></div>
                 </figure>
                 <figcaption>
-                    <h3 class="title-3-thumb txt-black" 
+                    <h3 className="title-3-thumb txt-black" 
                         dangerouslySetInnerHTML={{
                         __html: props.post.title.rendered}} />
                     <p className="text-mediumer-thumb txt-black">{props.post.acf.summary}</p>
