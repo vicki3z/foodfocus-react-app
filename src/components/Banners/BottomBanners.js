@@ -21,7 +21,7 @@ class BottomBanners extends Component {
 	}
 	renderBottomBanner() {
 		return this.state.banners.map((banner,index) => (
-			<li className="item">
+			<li className="item" key={`banner-${banner.id}`}>
 				<a href={banner.acf.link} title={banner.title.rendered} target="_blank">
 					<img src={banner.acf.image} alt={banner.title.rendered} />
 				</a>
@@ -55,7 +55,7 @@ class BottomBanners extends Component {
 	        }]
 		}
 		return (
-			<div class="col-sm-12">
+			<div className="col-sm-12">
 				<section className="carousel-wrap mar-top-md"></section>
 	            <ul className="carousel">
 	            	<Slider {...slickSettings}>
