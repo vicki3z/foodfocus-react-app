@@ -6,17 +6,43 @@ class EventList extends Component {
 	constructor(props) {
 	    super(props);
 	    this.state = {
-          eventList: []
+          eventList: [],
+          allEventList: [],
+          filterMonth: "",
+          filterYear: ""
 	    }
   	}
+    componentWillMount(){
+      this.setMonth();
+      this.setYear();
+    }
   	componentDidMount() {
   		/* get page info */
-      fetch(`${Config.apiUrl}/wp-json/wp/v2/events`)
+      fetch(`${Config.apiUrl}/wp-json/wp/v2/events?order=asc`)
         .then(res => res.json())
         .then(res => {
+          this.setState({allEventList: res})
           this.modifyList(res);
         })
   	}
+
+    setMonth(){
+      var currentDate = new Date();
+      var month = currentDate.getMonth()+1;
+      if(month < 10){
+        month = "0"+month;
+      }
+      month = this.getMonth(month);
+
+      this.setState({filterMonth: month})
+    }
+
+    setYear(){
+      var currentDate = new Date();
+      var year = currentDate.getFullYear();
+
+      this.setState({filterYear: year})
+    }
 
     modifyList(eventList){
       var newList = []
@@ -26,14 +52,22 @@ class EventList extends Component {
         var index = null;
         eventList.map((event) => {
           const dateStart = event.acf.date_start.split("/");
+          const dateEnd = event.acf.date_end.split("/");
           let month = this.getMonth(dateStart[1]);
-          if(month != currentMonth){
-            currentMonth = month;
-            newList.push({month: currentMonth, list: []});
-            index = (index != null) ? index+1 : 0;
+          let endMonth = this.getMonth(dateEnd[1]);
+          event.startMonth = month;
+          event.endMonth = endMonth;
+          let year = dateStart[2];
 
+          if(month == this.state.filterMonth && year == this.state.filterYear){
+            if(month != currentMonth){
+              currentMonth = month;
+              newList.push({month: currentMonth, list: []});
+              index = (index != null) ? index+1 : 0;
+
+            }
+            newList[index].list.push(event)
           }
-          newList[index].list.push(event)
         })
 
         this.setState({eventList: newList});
