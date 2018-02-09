@@ -70,8 +70,9 @@ class EventList extends Component {
       this.modifyList(this.state.allEventList, month, this.state.filterYear);
     }
     updateYear(event){
-      this.setState({filterYear: event.target.value});
-      this.modifyList(this.state.allEventList);
+      var year = event.target.value;
+      this.setState({filterYear: year});
+      this.modifyList(this.state.allEventList, this.state.filterMonth, year);
     }
     getMonth(month){
       switch(month){
