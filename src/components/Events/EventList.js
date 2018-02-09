@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Config } from "../../config.js";
 import EventItem from "./EventItem.js";
+import '../../assets/styles/event.css';
 
 class EventList extends Component {
 	constructor(props) {
@@ -158,6 +159,11 @@ class EventList extends Component {
             </form>
           </div>
     			{eventList}
+          {this.state.eventList.length == 0 &&
+            <div className="col-md-offset-5 col-sm-offset-4 col-xs-offset-1 mar-top">
+              <p className="text-large txt-black">------ No events -------</p>
+            </div>
+          }
           </div>
         </div>
   		)
