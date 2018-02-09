@@ -53,6 +53,10 @@
   height: 420px !important;
 }
 
+.page .list .thumb-default:hover, .page .list .story:hover {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
 /*== See All CTA ==*/
 .page #see-all .sub-title-bg {
   padding: 10px;

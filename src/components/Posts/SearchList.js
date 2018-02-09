@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostItem from '../Posts/PostItem.js';
+import HomeMainPost from '../Posts/HomeMainPost.js';
 import { Config } from "../../config.js";
 
 class SearchList extends Component {
@@ -53,7 +54,7 @@ class SearchList extends Component {
   	renderPostItem() {
       if(this.state.postList.length > 0){
         return this.state.postList.map((post,index)=>(
-          <PostItem post={post} key={`post-${index}`} />
+          <HomeMainPost post={post} key={`post-${post.id}`} />
         ));
       }else{
         return null;
@@ -63,8 +64,8 @@ class SearchList extends Component {
   		return (
         <section className="content pad-top-lg pad-bot-lg">
           <div className="inner-container">
-      			<div className="row">
-      				<div className="col-md-10 col-sm-12">
+      			<div className="row list">
+      				<div className="col-md-12 col-sm-12">
                   <div className="content-header mar-bot">
                   	<h3 className="title light txt-black">Search for "{this.props.match.params.word}"</h3>
                   </div>
