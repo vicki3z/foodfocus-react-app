@@ -1,0 +1,12 @@
+
+.event p.text-large {
+  padding:5px 0;
+}
+@media only screen and (max-width: 1024px) {
+  .event p.text-large {
+    font-size: 1.5rem;
+  }
+  .event p.text-mediumer {
+    font-size: 1.4rem;
+  }
+}
