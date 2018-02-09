@@ -11,40 +11,32 @@ class EventList extends Component {
           filterMonth: "",
           filterYear: ""
 	    }
+
+      this.updateMonth = this.updateMonth.bind(this);
+      this.updateYear = this.updateYear.bind(this);
   	}
     componentWillMount(){
-      this.setMonth();
-      this.setYear();
+      var today = new Date();
+      var month = today.getMonth()+1
+      if(month < 10){
+        month = "0" + month;
+      }
+      const year = today.getFullYear();
+
+      this.setState({filterMonth: month});
+      this.setState({filterYear: year});
     }
   	componentDidMount() {
   		/* get page info */
-      fetch(`${Config.apiUrl}/wp-json/wp/v2/events?order=asc`)
+      fetch(`${Config.apiUrl}/wp-json/wp/v2/events?order=asc&per_page=100`)
         .then(res => res.json())
         .then(res => {
           this.setState({allEventList: res})
-          this.modifyList(res);
+          this.modifyList(res, this.state.filterMonth, this.state.filterYear);
         })
   	}
 
-    setMonth(){
-      var currentDate = new Date();
-      var month = currentDate.getMonth()+1;
-      if(month < 10){
-        month = "0"+month;
-      }
-      month = this.getMonth(month);
-
-      this.setState({filterMonth: month})
-    }
-
-    setYear(){
-      var currentDate = new Date();
-      var year = currentDate.getFullYear();
-
-      this.setState({filterYear: year})
-    }
-
-    modifyList(eventList){
+    modifyList(eventList, filterMonth, filterYear){
       var newList = []
 
       if(eventList.length > 0){
@@ -58,8 +50,7 @@ class EventList extends Component {
           event.startMonth = month;
           event.endMonth = endMonth;
           let year = dateStart[2];
-
-          if(month == this.state.filterMonth && year == this.state.filterYear){
+          if(month == this.getMonth(filterMonth) && year == filterYear){
             if(month != currentMonth){
               currentMonth = month;
               newList.push({month: currentMonth, list: []});
@@ -73,7 +64,15 @@ class EventList extends Component {
         this.setState({eventList: newList});
       }
     }
-
+    updateMonth(event){
+      var month = event.target.value;
+      this.setState({filterMonth: month});
+      this.modifyList(this.state.allEventList, month, this.state.filterYear);
+    }
+    updateYear(event){
+      this.setState({filterYear: event.target.value});
+      this.modifyList(this.state.allEventList);
+    }
     getMonth(month){
       switch(month){
         case "01":
@@ -105,7 +104,7 @@ class EventList extends Component {
 
     renderEventItem(events) {
       return events.map((event) => (
-        <EventItem event={event} />
+        <EventItem key={`event-${event.id}`} event={event} />
       ))
     }
 
@@ -120,7 +119,45 @@ class EventList extends Component {
       ))
   		return (
         <div>
+          <div className="row">
+          <div className="col-md-offset-5 col-md-7 col-sm-12">
+            <form>
+              <div className="row">
+                  <label className="title-uppercase">MONTH:</label>
+                  <div className="form-group half mar-top-xs">
+                    <select className="form-control" value={this.state.filterMonth} onChange={this.updateMonth}>
+                      <option value="01">January</option>
+                      <option value="02">February</option>
+                      <option value="03">March</option>
+                      <option value="04">April</option>
+                      <option value="05">May</option>
+                      <option value="06">June</option>
+                      <option value="07">July</option>
+                      <option value="08">August</option>
+                      <option value="09">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
+                  </div>
+                  <div className="form-group half">
+                    <select className="form-control" value={this.state.filterYear} onChange={this.updateYear}>
+                      <option value="2024">2024</option>
+                      <option value="2023">2023</option>
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                      <option value="2017">2017</option>
+                      <option value="2016">2016</option>
+                    </select>
+                  </div>
+              </div>
+            </form>
+          </div>
     			{eventList}
+          </div>
         </div>
   		)
   	}

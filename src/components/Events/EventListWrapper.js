@@ -6,17 +6,10 @@ class EventListWrapper extends Component {
 	constructor(props) {
 	    super(props);
 	    this.state = {
-	    	pageInfoSlug: 'exhibition',
-	    	year: '',
-	    	month: ''
+	    	pageInfoSlug: 'exhibition'
 	    }
-  	}
-  	componentWillMount(){
-  		var today = new Date();
-  		const month = today.getMonth()+1
-  		const year = today.getFullYear();
-  		console.log('Month: '+month);
-  		console.log('Year: '+year);
+
+	    
   	}
   	componentDidMount() {
   		/* get page info */
@@ -33,6 +26,7 @@ class EventListWrapper extends Component {
 	    	})
 
   	}
+  	
   	render() {
   		return (
   			<div>
@@ -137,8 +131,9 @@ class EventListWrapper extends Component {
 	          						<h2 className="title-primary light mar-bot">CALENDAR</h2>
 	          					</div>
 	          					<div className="col-md-7 col-sm-12">
+	          						
 	          					</div>
-	          					<EventList month={this.state.month} year={this.state.year}  />
+	          					<EventList  />
 	          				</div>
 	          			</div>
 	          		</div>
