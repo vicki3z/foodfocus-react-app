@@ -42,6 +42,21 @@
   padding: 10px;
 }
 
+.page .list .product figcaption .text-mediumer-thumb{
+  line-height: 1.3;
+}
+.page .list .product .title-3-thumb{
+  font-weight: bold;
+}
+
+.page .list .product {
+  height: 420px !important;
+}
+
+.page .list .thumb-default:hover, .page .list .story:hover {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
 /*== See All CTA ==*/
 .page #see-all .sub-title-bg {
   padding: 10px;
