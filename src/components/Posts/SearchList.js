@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PostItem from '../Posts/PostItem.js';
 import HomeMainPost from '../Posts/HomeMainPost.js';
 import { Config } from "../../config.js";
 
