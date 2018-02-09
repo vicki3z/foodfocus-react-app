@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostItem from '../Posts/PostItem.js';
+import HomeMainPost from '../Posts/HomeMainPost.js';
 import { Config } from "../../config.js";
 
 class PostList extends Component {
@@ -42,19 +43,21 @@ class PostList extends Component {
   	}
   	renderPostItem() {
   		return this.state.postList.map((post,index)=>(
-  				<PostItem post={post} key={`post-${index}`} slug={this.state.postTypeSlug} />
+          <HomeMainPost slug={this.state.postTypeSlug} post={post} key={`post-${post.id}`} />
   			));
   	}
   	render() {
   		return (
   			<div className="row">
-  				<div className="col-md-10 col-sm-12">
-                    <div className="content-header mar-bot">
-                    	<h3 className="title light txt-black">{this.state.postType.toUpperCase()}</h3>
-                    </div>
-                    {this.renderPostItem()}
-                </div>
-            </div>
+  				<div className="col-md-12 col-sm-12">
+              <div className="content-header mar-bot">
+              	<h3 className="title light txt-black">{this.state.postType.toUpperCase()}</h3>
+              </div>
+              <div className="row list">
+                {this.renderPostItem()}
+              </div>
+          </div>
+        </div>
   		)
   	}
 
