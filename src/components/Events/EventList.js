@@ -111,8 +111,8 @@ class EventList extends Component {
     }
 
   	render() {
-      var eventList = this.state.eventList.map((eventObj) => (
-        <div className="col-xs-12">
+      var eventList = this.state.eventList.map((eventObj,index) => (
+        <div className="col-xs-12" key={`event-obj-${index}`}>
           <p className="text-large txt-black mar-bot">{eventObj.month.toUpperCase()}</p>
           <ul>
             {this.renderEventItem(eventObj.list)}

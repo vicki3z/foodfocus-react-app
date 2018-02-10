@@ -1,4 +1,18 @@
+* {
+  min-height: 0;
+  min-width: 0;
+}
 
+
+/*=== Media Partners ===*/
+.media-carousel .item {
+	width: 130px !important;
+}
+
+
+
+
+/*=== Event List ===*/
 .event p.text-large {
   padding:5px 0;
 }
@@ -10,3 +24,4 @@
     font-size: 1.4rem;
   }
 }
+
