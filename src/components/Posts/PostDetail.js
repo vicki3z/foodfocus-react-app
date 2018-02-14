@@ -21,7 +21,7 @@ class PostDetail extends Component {
 	    	this.setState({postType: "NEWS"});
 	    	this.setState({postCategoryName: "News"});
 	    } else if (this.props.match.path.includes("ushare")){
-	    	this.setState({postType: "U SHARE V CARE"});
+	    	this.setState({postType: "ACTIVITY"});
 	    	this.setState({postCategoryName: "ushare"});
 	    }
   	}

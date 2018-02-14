@@ -53,7 +53,7 @@ class Header extends Component {
 				{
 					id: 8,
 					name: "Events",
-					url: "/event-exhibition.html",
+					url: "/event-exhibition",
 					submenu: [
 						{
 							id: 9,
@@ -76,7 +76,7 @@ class Header extends Component {
 						{
 							id: 12,
 							name: "Exhibitions",
-							url: "/event-exhibition.html",
+							url: "/event-exhibition",
 							icon: "https://www.foodfocusthailand.com/images/icons/exhibition.png"
 						}
 					]
