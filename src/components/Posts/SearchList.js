@@ -49,6 +49,15 @@ class SearchList extends Component {
             this.setState({postList: res})
           }
         })
+      fetch(`${Config.apiUrl}/wp-json/wp/v2/events?search=${this.props.match.params.word}&per_page=20`)
+        .then(res => res.json())
+        .then(res => {
+          if(this.state.postList.length > 0){
+            this.setState({postList: this.state.postList.concat(res)})
+          }else{
+            this.setState({postList: res})
+          }
+        })
   	}
   	renderPostItem() {
       if(this.state.postList.length > 0){
