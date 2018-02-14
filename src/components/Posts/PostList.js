@@ -50,7 +50,7 @@ class PostList extends Component {
   			<div className="row">
   				<div className="col-md-12 col-sm-12">
               <div className="content-header mar-bot">
-              	<h3 className="title light txt-black">{this.state.postType.toUpperCase()}</h3>
+              	<h3 className="title light txt-black">{(this.state.postType == 'ushare') ? "ACTIVITIES" : this.state.postType.toUpperCase()}</h3>
               </div>
               <div className="row list">
                 {this.renderPostItem()}
