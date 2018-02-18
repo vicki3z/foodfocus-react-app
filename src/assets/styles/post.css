@@ -57,6 +57,10 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
+.page .list .product figure {
+  height: 270px;
+}
+
 /*== See All CTA ==*/
 .page #see-all .sub-title-bg {
   padding: 10px;
