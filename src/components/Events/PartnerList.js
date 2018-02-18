@@ -21,9 +21,11 @@ class PartnerList extends Component {
   	render() {
       var partnerList = this.state.partnerList.map((media) => (
         <li className="item" key={`banner-${media.id}`}>
-          <a href={media.acf.link} title={media.title.rendered} target="_blank">
-            <img src={media.acf.image} alt={media.title.rendered} />
-          </a>
+          <div>
+            <a href={media.acf.link} title={media.title.rendered} target="_blank">
+              <img src={media.acf.image} alt={media.title.rendered} />
+            </a>
+          </div>
         </li>
       ))
       var slickSettings = {
