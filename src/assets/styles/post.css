@@ -13,6 +13,9 @@
 }
 
 /*== Post List ==*/
+.page .list {
+  margin-bottom: 40px;
+}
 .page .list .content-item {
   border-bottom: none;
 }
@@ -59,6 +62,26 @@
 
 .page .list .product figure {
   height: 270px;
+}
+
+.page .page-list {
+  text-align: center
+}
+.page .page-list .page-item{
+  display: inline-block;
+  margin-right: 35px;
+  margin-bottom: 15px;
+  font-size: 1.7em;
+}
+
+.page .page-list .page-item a {
+  color: #007fbb;
+}
+
+.page .page-list .page-item.active a {
+  color: #aaa;
+  pointer-events: none;
+  cursor: default;
 }
 
 /*== See All CTA ==*/
