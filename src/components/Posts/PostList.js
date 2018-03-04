@@ -8,7 +8,8 @@ class PostList extends Component {
 	    this.state = {
 	      	postList: [],
 	      	postType: "",
-	      	postTypeSlug: ""
+	      	postTypeSlug: "",
+          totalPages: 0
 	    }
 
   	}
@@ -31,9 +32,22 @@ class PostList extends Component {
 	    this.setPostTypeSlug();
   	}
   	componentDidMount() {
-  		
-	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=${this.state.postType}&per_page=100`)
-	    	.then(res => res.json())
+      let queryString = this.props.location.search;
+      let page = 1;
+      if(queryString != ""){
+        page = queryString.split("?page=");
+        page = parseInt(page[1]);
+      }
+      console.log(page);
+
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=${this.state.postType}&per_page=12&page=${page}`)
+	    	.then(res => {
+          this.setState({
+            totalPages: res.headers.get('x-wp-totalpages')
+          })
+
+          return res.json();
+        })
 	    	.then(res => {
 	    		this.setState({
 	    			postList: res
