@@ -9,7 +9,8 @@ class PostList extends Component {
 	      	postList: [],
 	      	postType: "",
 	      	postTypeSlug: "",
-          totalPages: 0
+          totalPages: 0,
+          currentPage: 1
 	    }
 
   	}
@@ -27,20 +28,24 @@ class PostList extends Component {
   		var slugSplit = this.props.match.path.split("/");
   		this.setState({postTypeSlug: slugSplit[1]});
   	}
+    setCurrentPage() {
+      let queryString = this.props.location.search;
+      if(queryString != ""){
+        let page = queryString.split("?page=");
+        page = parseInt(page[1]);
+        this.setState({
+          currentPage: page
+        })
+      }
+    }
   	componentWillMount(){
   		this.setPostType();
 	    this.setPostTypeSlug();
+      this.setCurrentPage();
   	}
   	componentDidMount() {
-      let queryString = this.props.location.search;
-      let page = 1;
-      if(queryString != ""){
-        page = queryString.split("?page=");
-        page = parseInt(page[1]);
-      }
-      console.log(page);
-
-	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=${this.state.postType}&per_page=12&page=${page}`)
+      
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=${this.state.postType}&per_page=12&page=${this.state.currentPage}`)
 	    	.then(res => {
           this.setState({
             totalPages: res.headers.get('x-wp-totalpages')
@@ -60,6 +65,21 @@ class PostList extends Component {
   			));
   	}
   	render() {
+      var renderPageNumbers = null;
+      if(this.state.totalPages != 0){
+        var pageNumbers = [];
+        for (var page = 1; page <= this.state.totalPages; page++){
+          pageNumbers.push(page);
+        }
+
+        renderPageNumbers = pageNumbers.map(page => {
+          return (
+            <div className={(this.state.currentPage == page) ? 'page-item active': 'page-item'} key={`page-${page}`}>
+              <a href={`${this.props.location.pathname}?page=${page}`}>{page}</a>
+            </div>
+          )
+        })
+      }
   		return (
   			<div className="row">
   				<div className="col-md-12 col-sm-12">
@@ -68,6 +88,13 @@ class PostList extends Component {
               </div>
               <div className="row list">
                 {this.renderPostItem()}
+              </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="page-list">
+                    {renderPageNumbers}
+                  </div>
+                </div>
               </div>
           </div>
         </div>
