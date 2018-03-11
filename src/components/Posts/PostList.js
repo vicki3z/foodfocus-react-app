@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HomeMainPost from '../Posts/HomeMainPost.js';
+import ListNavigation from '../Posts/ListNavigation.js';
 import { Config } from "../../config.js";
 
 class PostList extends Component {
@@ -65,21 +66,6 @@ class PostList extends Component {
   			));
   	}
   	render() {
-      var renderPageNumbers = null;
-      if(this.state.totalPages != 0){
-        var pageNumbers = [];
-        for (var page = 1; page <= this.state.totalPages; page++){
-          pageNumbers.push(page);
-        }
-
-        renderPageNumbers = pageNumbers.map(page => {
-          return (
-            <div className={(this.state.currentPage == page) ? 'page-item active': 'page-item'} key={`page-${page}`}>
-              <a href={`${this.props.location.pathname}?page=${page}`}>{page}</a>
-            </div>
-          )
-        })
-      }
   		return (
   			<div className="row">
   				<div className="col-md-12 col-sm-12">
@@ -89,13 +75,10 @@ class PostList extends Component {
               <div className="row list">
                 {this.renderPostItem()}
               </div>
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="page-list">
-                    {renderPageNumbers}
-                  </div>
-                </div>
-              </div>
+              {this.state.totalPages != 0 &&
+                <ListNavigation currentPage={this.state.currentPage} totalPages={this.state.totalPages}
+                location={this.props.location.pathname}  />
+              }
           </div>
         </div>
   		)
