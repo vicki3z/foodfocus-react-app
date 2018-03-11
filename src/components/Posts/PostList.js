@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HomeMainPost from '../Posts/HomeMainPost.js';
+import ListNavigation from '../Posts/ListNavigation.js';
 import { Config } from "../../config.js";
 
 class PostList extends Component {
@@ -74,22 +75,10 @@ class PostList extends Component {
               <div className="row list">
                 {this.renderPostItem()}
               </div>
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="page-list">
-                    <div id="prev" className={(this.state.currentPage == 1) ? "disabled" : ""}>
-                      <a href={`${this.props.location.pathname}?page=${this.state.currentPage-1}`}>
-                        <h3 className="sub-title-bg txt-white" id="highlight-see-all">Previous</h3>
-                      </a>
-                    </div>
-                    <div id="next" className={ (this.state.currentPage == this.state.totalPages) ? "disabled" : ""}>
-                      <a href={`${this.props.location.pathname}?page=${this.state.currentPage+1}`}>
-                        <h3 className="sub-title-bg txt-white" id="highlight-see-all">Next</h3>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {this.state.totalPages != 0 &&
+                <ListNavigation currentPage={this.state.currentPage} totalPages={this.state.totalPages}
+                location={this.props.location.pathname}  />
+              }
           </div>
         </div>
   		)
