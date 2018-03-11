@@ -65,23 +65,20 @@
 }
 
 .page .page-list {
-  text-align: center
+  position: relative;
+
 }
-.page .page-list .page-item{
-  display: inline-block;
-  margin-right: 35px;
-  margin-bottom: 15px;
-  font-size: 1.7em;
+.page .page-list #prev {
+  float: left;
+}
+.page .page-list #next {
+  float: right;
 }
 
-.page .page-list .page-item a {
-  color: #007fbb;
-}
-
-.page .page-list .page-item.active a {
-  color: #aaa;
+.page .page-list .disabled a {
   pointer-events: none;
   cursor: default;
+  opacity: 0.5;
 }
 
 /*== See All CTA ==*/
