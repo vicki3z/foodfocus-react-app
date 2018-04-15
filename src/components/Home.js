@@ -7,6 +7,7 @@ import Subscribe from './Subscribe.js';
 import '../assets/styles/home.css';
 import '../assets/styles/banner.css';
 import { Config } from "../config.js";
+import { Helmet } from "react-helmet";
 
 class Home extends Component {
 	constructor(){
@@ -171,6 +172,22 @@ class Home extends Component {
 		}
 		return(
 			<div>
+				<Helmet>
+					<meta charset="UTF-8" />
+					<title>Food Focus Thailand | Be Media Focus</title>
+					<meta name="Description" content="Discover more about the no. 1 leading industry-focused magazine for food & beverage from Food Focus Thailand" />
+					<meta property="og:title" content="Food Focus Thailand" />
+					<meta property="og:description" content="Discover more about the no. 1 leading industry-focused magazine for food & beverage from Food Focus Thailand" />
+					<meta property="og:url" content="http://www.foodfocusthailand.com/index.html" />
+					<meta property="og:locale" content="th_TH" />
+					<meta propert="og:type" content="website" />
+					<meta propert="og:site_name" content="Food Focus Thailand" />
+					{this.state.magazine != null &&
+						<meta property="og:image" content={this.state.magazine.acf.image} />
+						
+					}
+					
+				</Helmet>
 				<section className="banner-wrap">
 					<section className="item">
 						<div className="thumb"></div>

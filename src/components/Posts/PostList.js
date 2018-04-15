@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import HomeMainPost from '../Posts/HomeMainPost.js';
 import ListNavigation from '../Posts/ListNavigation.js';
 import { Config } from "../../config.js";
+import { Helmet } from "react-helmet";
 
 class PostList extends Component {
 	constructor(props) {
@@ -68,6 +69,22 @@ class PostList extends Component {
   	render() {
   		return (
   			<div className="row">
+          <Helmet>
+            <meta charset="UTF-8" />
+            <title>{this.state.postType} - Food Focus Thailand | Be Media Focus</title>
+            <meta name="Description" content="Discover new highlight articles every week about the food and beverage industy." />
+            <meta property="og:title" content={this.state.postType} />
+            <meta property="og:description" content="Discover new highlight articles every week about the food and beverage industy." />
+            <meta property="og:url" content={`http://www.foodfocusthailand.com/${this.state.postTypeSlug}`} />
+            <meta property="og:locale" content="th_TH" />
+            <meta propert="og:type" content="website" />
+            <meta propert="og:site_name" content="Food Focus Thailand" />
+            {this.state.postList[0] != null &&
+              <meta property="og:image" content={this.state.postList[0].better_featured_image.source_url} />
+              
+            }
+          
+          </Helmet>
   				<div className="col-md-12 col-sm-12">
               <div className="content-header mar-bot">
               	<h3 className="title light txt-black">{(this.state.postType == 'ushare') ? "ACTIVITIES" : this.state.postType.toUpperCase()}</h3>

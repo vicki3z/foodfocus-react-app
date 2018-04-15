@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import MagazineList from './MagazineList.js';
 import { Config } from "../../config.js";
+import '../../assets/styles/magazine.css';
+
 
 class Magazine extends Component {
 	constructor(props) {
