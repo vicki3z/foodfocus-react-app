@@ -3334,9 +3334,14 @@ table tr td {
   }
 }
 .carousel .item {
-  max-width: 1000px;
   margin: 0 15px;
 }
+.carousel .item img {
+  width: 970px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 @media only screen and (max-width: 991px) {
   .carousel .item {
     width: auto;
