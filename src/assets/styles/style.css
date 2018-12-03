@@ -3306,6 +3306,7 @@ table tr td {
 @media only screen and (max-width: 991px) {
   .carousel-wrap .carousel {
     padding-top: 20px;
+    padding-left: 5px;
   }
 }
 .carousel-wrap .carousel .slick-prev,
@@ -3328,11 +3329,6 @@ table tr td {
     top: 0;
   }
 }
-@media only screen and (max-width: 767px) {
-  .carousel .slick-slide img {
-    width: 100%;
-  }
-}
 .carousel .item {
   margin: 0 15px;
 }
@@ -3340,6 +3336,13 @@ table tr td {
   width: 970px;
   margin: 0 auto;
   text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .carousel .slick-slide img {
+    width: 100%;
+    margin-left: 50%;
+  }
 }
 
 @media only screen and (max-width: 991px) {
