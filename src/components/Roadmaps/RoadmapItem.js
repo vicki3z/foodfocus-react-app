@@ -1,51 +1,42 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
 class RoadmapItem extends Component {
-  constructor(props) {
-      super(props);
-      
-  }
-  renderItem(style){
+  renderItem(style) {
     return (
       <div>
-        <div className="image" style={style}></div>
+        <div className="image" style={style} />
         <div className="caption">
-          <h2 className="title-1-thumb" 
+          <h2
+            className="title-1-thumb"
             dangerouslySetInnerHTML={{
-                  __html: this.props.roadmap.title.rendered
-              }}
-          >
-
-          </h2>
+              __html: this.props.roadmap.title.rendered
+            }}
+          />
           <h2 className="title-1-thumb">{this.props.roadmap.acf.date}</h2>
         </div>
       </div>
-    )
+    );
   }
-  renderItemWithLink(slug,style){
+  renderItemWithLink(slug, style) {
     return (
-      <a href={slug} title="" >
+      <a href={slug} title="">
         {this.renderItem(style)}
       </a>
-    )
+    );
   }
-  render(){
+  render() {
     const roadMapStyle = {
-      backgroundImage: 'url('+this.props.roadmap.acf.image+')'
-    }
-    const slug = '/'+this.props.mainSlug+'/'+this.props.roadmap.slug;
+      backgroundImage: "url(" + this.props.roadmap.acf.image + ")"
+    };
+    const slug = "/" + this.props.mainSlug + "/" + this.props.roadmap.slug;
 
     let roadMapItem;
-    if(this.props.roadmap.content.rendered != ""){
-      roadMapItem = this.renderItemWithLink(slug,roadMapStyle);
-    }else{
+    if (this.props.roadmap.content.rendered !== "") {
+      roadMapItem = this.renderItemWithLink(slug, roadMapStyle);
+    } else {
       roadMapItem = this.renderItem(roadMapStyle);
     }
-    return (
-      <article className="roadmap">
-        {roadMapItem}
-      </article>
-    )
+    return <article className="roadmap">{roadMapItem}</article>;
   }
 }
 

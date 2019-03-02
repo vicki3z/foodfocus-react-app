@@ -224,6 +224,7 @@ class Header extends Component {
               href="https://www.foodfocusthailand.com/index.html"
               title=""
               target="_blank"
+              rel="noopener noreferrer"
               className="logo hidden-md-up"
             >
               <img
