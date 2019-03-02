@@ -29,9 +29,20 @@ class EventList extends Component {
   }
   componentDidMount() {
     /* get page info */
-    fetch(`${Config.apiUrl}/wp-json/wp/v2/events?order=asc&per_page=100`)
+    this.fetchEvents(this.state.filterYear, this.state.filterMonth);
+  }
+
+  fetchEvents(year, month) {
+    fetch(
+      `${
+        Config.apiUrl
+      }/wp-json/wp/v2/foodfocus_events?year=${year}&month=${this.getMonth(
+        month.toString()
+      )}`
+    )
       .then(res => res.json())
       .then(res => {
+        console.log(res);
         this.setState({ allEventList: res });
         this.modifyList(res, this.state.filterMonth, this.state.filterYear);
       });
@@ -39,7 +50,7 @@ class EventList extends Component {
 
   modifyList(eventList, filterMonth, filterYear) {
     var newList = [];
-
+    console.log(eventList);
     if (eventList.length > 0) {
       var currentMonth = "";
       var index = null;
@@ -50,29 +61,31 @@ class EventList extends Component {
         let endMonth = this.getMonth(dateEnd[1]);
         event.startMonth = month;
         event.endMonth = endMonth;
-        let year = dateStart[2];
-        if (month === this.getMonth(filterMonth) && year === filterYear) {
-          if (month !== currentMonth) {
-            currentMonth = month;
-            newList.push({ month: currentMonth, list: [] });
-            index = index !== null ? index + 1 : 0;
-          }
-          newList[index].list.push(event);
+        if (month != currentMonth) {
+          currentMonth = month;
+          newList.push({ month: currentMonth, list: [] });
+          index = index != null ? index + 1 : 0;
         }
+        newList[index].list.push(event);
       });
+      console.log(newList);
 
       this.setState({ eventList: newList });
+    } else {
+      this.setState({ eventList: [] });
     }
   }
   updateMonth(event) {
     var month = event.target.value;
     this.setState({ filterMonth: month });
-    this.modifyList(this.state.allEventList, month, this.state.filterYear);
+    this.fetchEvents(this.state.filterYear, month);
+    //this.modifyList(this.state.allEventList, month, this.state.filterYear);
   }
   updateYear(event) {
     var year = event.target.value;
     this.setState({ filterYear: year });
-    this.modifyList(this.state.allEventList, this.state.filterMonth, year);
+    this.fetchEvents(year, this.state.filterMonth);
+    //this.modifyList(this.state.allEventList, this.state.filterMonth, year);
   }
   getMonth(month) {
     switch (month) {
@@ -166,7 +179,7 @@ class EventList extends Component {
             </form>
           </div>
           {eventList}
-          {this.state.eventList.length === 0 && (
+          {this.state.eventList.length == 0 && (
             <div className="col-md-offset-5 col-sm-offset-4 col-xs-offset-1 mar-top">
               <p className="text-large txt-black">------ No events -------</p>
             </div>

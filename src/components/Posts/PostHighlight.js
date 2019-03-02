@@ -9,7 +9,8 @@ const PostHighlight = function(props){
             <div style={styleSetting} className="thumb"></div>
             <div className="caption">
                 <div className="desc">
-                    <h2 className="title-1-thumb">{props.post.title.rendered}</h2>
+                    <h2 className="title-1-thumb" dangerouslySetInnerHTML={{
+                        __html: props.post.title.rendered}} />
                     <p className="text-mediumer-thumb">{props.post.acf.summary}</p>
                 </div>
             </div>

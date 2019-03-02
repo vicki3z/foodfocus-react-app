@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 
 const EventItem = function(props) {
   var startMonth = props.event.startMonth.substr(0, 3);
   var endMonth = props.event.endMonth.substr(0, 3);
 
-  if (startMonth !== endMonth) {
+  if (startMonth != endMonth) {
     startMonth = startMonth + "/" + endMonth;
   }
   var dateStart = props.event.acf.date_start.split("/");
@@ -22,25 +22,23 @@ const EventItem = function(props) {
         <p
           className="text-large txt-black"
           dangerouslySetInnerHTML={{
-            __html: props.event.title.rendered
+            __html: props.event.post_title
           }}
         />
-        {props.event.acf.full_event_name !== "" && (
+        {props.event.acf.full_event_name != "" && (
           <p className="text-large txt-black">
             {props.event.acf.full_event_name}
           </p>
         )}
         <p className="text-mediumer txt-black">{props.event.acf.location}</p>
         <p className="text-medium txt-black">
-          {props.event.acf.tel !== "" && (
-            <span>Tel: {props.event.acf.tel}</span>
-          )}
-          {props.event.acf.email !== "" && (
+          {props.event.acf.tel != "" && <span>Tel: {props.event.acf.tel}</span>}
+          {props.event.acf.email != "" && (
             <span> Email: {props.event.acf.email}</span>
           )}
         </p>
 
-        {props.event.acf.website !== "" && (
+        {props.event.acf.website != "" && (
           <p className="text-medium txt-black">
             Website:{" "}
             <a href={props.event.acf.website}>{props.event.acf.website}</a>

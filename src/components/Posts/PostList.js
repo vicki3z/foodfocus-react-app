@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import HomeMainPost from "../Posts/HomeMainPost.js";
 import ListNavigation from "../Posts/ListNavigation.js";
 import { Config } from "../../config.js";
+import { Helmet } from "react-helmet";
 
 class PostList extends Component {
   constructor(props) {
