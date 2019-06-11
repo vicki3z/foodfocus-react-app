@@ -1,9 +1,15 @@
 /*==== Bottom Banner ====*/
 @media only screen and (min-width: 992px) {
-	.carousel .slick-slide:not(.slick-active) {
-		opacity: 1;
-	}
-	.carousel .slick-slide:not(.slick-active):before{
-		background: none;
-	}
+  .carousel .slick-slide:not(.slick-active) {
+    opacity: 1;
+  }
+  .carousel .slick-slide:not(.slick-active):before {
+    background: none;
+  }
+}
+#bottom-banner .slick-dots {
+  bottom: -45px;
+}
+#bottom-banner .slick-dots li button {
+  background: #aaa;
 }
