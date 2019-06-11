@@ -30,7 +30,7 @@ class BottomBanners extends Component {
   }
   render() {
     var slickSettings = {
-      dots: false,
+      dots: true,
       infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -39,7 +39,7 @@ class BottomBanners extends Component {
     return (
       <div className="col-sm-12">
         <section className="carousel-wrap mar-top-md">
-          <ul className="carousel">
+          <ul className="carousel" id="bottom-banner">
             <Slider {...slickSettings}>{this.renderBottomBanner()}</Slider>
           </ul>
         </section>
