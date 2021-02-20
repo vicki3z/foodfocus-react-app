@@ -23,7 +23,8 @@ class Home extends Component {
 			highlightStory: {},
 			newsArticles: [],
 			ushareArticles: [],
-			eventsArticles: []
+			eventsArticles: [],
+			advertisement: []
 		}
 	}
 
@@ -59,6 +60,16 @@ class Home extends Component {
 	    		})
 	    		
 	    	})
+
+		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=advertisement&order=asc&per_page=3`)
+				.then(res => res.json())
+				.then(res => {
+					console.log(res)
+					this.setState({
+	    			advertisement: res
+	    		})
+					
+				})
 
 	   	/** Get Roadmap, Roadshow, Seminar **/
 	   	fetch(`${Config.apiUrl}/wp-json/wp/v2/roadmap?filter[meta_key]=homepage&filter[meta_value]=true&per_page=2`)
@@ -170,6 +181,25 @@ class Home extends Component {
 		}else{
 			eventsArticles = null;
 		}
+
+		let advertisements;
+		if(this.state.advertisement.length > 0) {
+			advertisements = this.state.advertisement.map((ad, index) => (
+				<div className="col-lg-4 col-sm-12" key={`ad-${index}`} style={{ textAlign: "center", marginBottom: "2.5em" }}>
+					<a href={ad.link} target="__blank">
+						<center>
+							<h4 style={{color: "black"}}>-Advertisement- </h4>
+						</center>
+						<br />
+						<img
+							src={ad.better_featured_image.source_url}
+							width={ad.better_featured_image.media_details.width}
+							height={ad.better_featured_image.media_details.height}
+						/>
+					</a>
+				</div>
+			))
+		}
 		return(
 			<div>
 				<Helmet>
@@ -216,6 +246,13 @@ class Home extends Component {
 	      						</a>
 	      					</div>
       					</div>
+					</div>
+				</div>
+				<div className="wrapper pad-top-md" id="advertisement">
+					<div className="inner-container">
+						<div className="row">
+							{advertisements}
+						</div>
 					</div>
 				</div>
 				<div className="wrapper pad-bot-lg pad-top-lg" id="other-articles-wrapper">
