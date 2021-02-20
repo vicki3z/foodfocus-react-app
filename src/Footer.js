@@ -13,19 +13,6 @@ class Footer extends Component {
               <ul className="partners mar-top-xs">
                 <li>
                   <a
-                    href="http://www.ebooks.in.th/BeMediaFocus"
-                    title=""
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="https://www.foodfocusthailand.com/images/upload/p-1.png"
-                      alt=""
-                    />
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="https://issuu.com/bemediafocus"
                     title=""
                     target="_blank"
