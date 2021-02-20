@@ -8,6 +8,7 @@ import '../assets/styles/home.css';
 import '../assets/styles/banner.css';
 import { Config } from "../config.js";
 import { Helmet } from "react-helmet";
+import Advertisement from './Banners/Advertisement';
 
 class Home extends Component {
 	constructor(){
@@ -185,19 +186,15 @@ class Home extends Component {
 		let advertisements;
 		if(this.state.advertisement.length > 0) {
 			advertisements = this.state.advertisement.map((ad, index) => (
-				<div className="col-lg-4 col-sm-12" key={`ad-${index}`} style={{ textAlign: "center", marginBottom: "2.5em" }}>
-					<a href={ad.link} target="__blank">
-						<center>
-							<h4 style={{color: "black"}}>-Advertisement- </h4>
-						</center>
-						<br />
-						<img
-							src={ad.better_featured_image.source_url}
-							width={ad.better_featured_image.media_details.width}
-							height={ad.better_featured_image.media_details.height}
-						/>
-					</a>
-				</div>
+				<Advertisement
+					key={`ad-${index}`}
+					link={ad.link}
+					media={{
+						src: ad.better_featured_image.source_url,
+						width: ad.better_featured_image.media_details.width,
+						height: ad.better_featured_image.media_details.height
+					}}
+				/>
 			))
 		}
 		return(
