@@ -46,7 +46,7 @@ class PostList extends Component {
   }
   componentDidMount() {
     fetch(
-      `${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=${
+      `${Config.apiUrl}/wp-json/wp/v2/posts?${Config.acfFormat}&filter[category_name]=${
         this.state.postType
       }&per_page=12&page=${this.state.currentPage}`
     )

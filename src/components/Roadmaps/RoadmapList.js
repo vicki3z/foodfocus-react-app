@@ -12,7 +12,7 @@ class RoadmapList extends Component {
   componentDidMount() {
     /* get all event_year */
     fetch(
-      `${Config.apiUrl}/wp-json/wp/v2/${this.props.roadMapType}?event_year=${
+      `${Config.apiUrl}/wp-json/wp/v2/${this.props.roadMapType}?${Config.acfFormat}&event_year=${
         this.props.year.id
       }&order=asc&per_page=100`
     )

@@ -19,7 +19,7 @@ class Magazine extends Component {
   }
   componentDidMount() {
     fetch(
-      `${Config.apiUrl}/wp-json/wp/v2/pages?slug=food-focus-thailand-magazine`
+      `${Config.apiUrl}/wp-json/wp/v2/pages?${Config.acfFormat}&slug=food-focus-thailand-magazine`
     )
       .then(res => res.json())
       .then(res => {

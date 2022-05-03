@@ -35,7 +35,7 @@ class PostDetail extends Component {
   		this.setPostTypeSlug();
   	}
   	componentDidMount() {
-	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?slug=${this.props.match.params.slug}`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?${Config.acfFormat}&slug=${this.props.match.params.slug}`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({

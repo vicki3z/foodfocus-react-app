@@ -45,7 +45,7 @@ class RoadmapListWrapper extends Component {
   componentDidMount() {
     /* get page info */
     fetch(
-      `${Config.apiUrl}/wp-json/wp/v2/pages?slug=${this.state.pageInfoSlug}`
+      `${Config.apiUrl}/wp-json/wp/v2/pages?${Config.acfFormat}&slug=${this.state.pageInfoSlug}`
     )
       .then(res => res.json())
       .then(res => {

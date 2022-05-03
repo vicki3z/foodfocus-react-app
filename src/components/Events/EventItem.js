@@ -13,6 +13,7 @@ const EventItem = function(props) {
   return (
     <li className="event">
       <div className="event-date">
+        <p className="text-medium txt-white">{props.event.acf.year}</p>
         <h2 className="title txt-black">
           {dateStart[0]}-{dateEnd[0]}
         </h2>

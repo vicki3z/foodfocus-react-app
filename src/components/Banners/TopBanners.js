@@ -11,7 +11,7 @@ class TopBanners extends Component {
 	}
 	componentDidMount() {
 		/** Get only top banners **/
-		fetch(`${Config.apiUrl}/wp-json/wp/v2/banner?position=14&order=asc`)
+		fetch(`${Config.apiUrl}/wp-json/wp/v2/banner?${Config.acfFormat}&position=14&order=asc`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({

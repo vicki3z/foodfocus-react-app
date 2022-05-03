@@ -14,7 +14,7 @@ class EventListWrapper extends Component {
   	}
   	componentDidMount() {
   		/* get page info */
-  		fetch(`${Config.apiUrl}/wp-json/wp/v2/pages?slug=${this.state.pageInfoSlug}`)
+  		fetch(`${Config.apiUrl}/wp-json/wp/v2/pages?${Config.acfFormat}&slug=${this.state.pageInfoSlug}`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		var pageInfo = res.shift();

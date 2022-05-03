@@ -12,7 +12,7 @@ class MagazineList extends Component {
 	    }
   	}
   	componentDidMount() {
-	    fetch(`${Config.apiUrl}/wp-json/wp/v2/magazines?filter[taxonomy]=magazine_type&filter[term]=${this.props.magazineType}&per_page=100`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/magazines?${Config.acfFormat}&filter[taxonomy]=magazine_type&filter[term]=${this.props.magazineType}&per_page=100`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({

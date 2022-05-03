@@ -36,7 +36,7 @@ class EventList extends Component {
     fetch(
       `${
         Config.apiUrl
-      }/wp-json/wp/v2/foodfocus_events?year=${year}&month=${this.getMonth(
+      }/wp-json/wp/v2/foodfocus_events?${Config.acfFormat}&year=${year}&month=${this.getMonth(
         month.toString()
       )}`
     )

@@ -31,7 +31,7 @@ class Home extends Component {
 
 	componentDidMount() {
 		var type = "What's In";
-		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=Homepage&order=asc`)
+		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?${Config.acfFormat}&filter[category_name]=Homepage&order=asc`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
@@ -43,7 +43,7 @@ class Home extends Component {
 	    	})
 
 	    /** Get 4 latest news **/
-	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=News&per_page=4`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?${Config.acfFormat}&filter[category_name]=News&per_page=4`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
@@ -53,7 +53,7 @@ class Home extends Component {
 
 	    /** Get 4 latest Ushare **/
 	    var type = "U Share";
-		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=ushare&per_page=4`)
+		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?${Config.acfFormat}&filter[category_name]=ushare&per_page=4`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
@@ -62,7 +62,7 @@ class Home extends Component {
 	    		
 	    	})
 
-		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?filter[category_name]=advertisement&order=asc&per_page=3`)
+		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?${Config.acfFormat}&filter[category_name]=advertisement&order=asc&per_page=3`)
 				.then(res => res.json())
 				.then(res => {
 					console.log(res)
@@ -73,21 +73,21 @@ class Home extends Component {
 				})
 
 	   	/** Get Roadmap, Roadshow, Seminar **/
-	   	fetch(`${Config.apiUrl}/wp-json/wp/v2/roadmap?filter[meta_key]=homepage&filter[meta_value]=true&per_page=2`)
+	   	fetch(`${Config.apiUrl}/wp-json/wp/v2/roadmap?${Config.acfFormat}&filter[meta_key]=homepage&filter[meta_value]=true&per_page=2`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({
 	    			eventsArticles: res
 	    		})
 	    		
-	    		fetch(`${Config.apiUrl}/wp-json/wp/v2/roadshow?filter[meta_key]=homepage&filter[meta_value]=true&per_page=2`)
+	    		fetch(`${Config.apiUrl}/wp-json/wp/v2/roadshow?${Config.acfFormat}&filter[meta_key]=homepage&filter[meta_value]=true&per_page=2`)
 			    	.then(res => res.json())
 			    	.then(res => {
 			    		this.setState({
 			    			eventsArticles: this.state.eventsArticles.concat(res)
 			    		})
 
-			    		fetch(`${Config.apiUrl}/wp-json/wp/v2/seminar?filter[meta_key]=homepage&filter[meta_value]=true&per_page=2`)
+			    		fetch(`${Config.apiUrl}/wp-json/wp/v2/seminar?${Config.acfFormat}&filter[meta_key]=homepage&filter[meta_value]=true&per_page=2`)
 					    	.then(res => res.json())
 					    	.then(res => {
 					    		this.setState({
@@ -100,7 +100,7 @@ class Home extends Component {
 	    	})
 
 	    /** Get Latest FFT Magazine **/
-	    fetch(`${Config.apiUrl}/wp-json/wp/v2/magazines?filter[taxonomy]=magazine_type&filter[term]=fft&per_page=1`)
+	    fetch(`${Config.apiUrl}/wp-json/wp/v2/magazines?${Config.acfFormat}&filter[taxonomy]=magazine_type&filter[term]=fft&per_page=1`)
 	    	.then(res => res.json())
 	    	.then(res => {
 	    		this.setState({

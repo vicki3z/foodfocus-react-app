@@ -11,7 +11,7 @@ class PartnerList extends Component {
   	}
   	componentDidMount() {
   		/* get page info */
-      fetch(`${Config.apiUrl}/wp-json/wp/v2/media_partners?order=asc&per_page=30`)
+      fetch(`${Config.apiUrl}/wp-json/wp/v2/media_partners?${Config.acfFormat}&order=asc&per_page=30`)
         .then(res => res.json())
         .then(res => {
           this.setState({partnerList: res})

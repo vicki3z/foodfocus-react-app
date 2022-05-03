@@ -14,7 +14,7 @@ class SearchList extends Component {
 
   componentDidMount() {
     fetch(
-      `${Config.apiUrl}/wp-json/wp/v2/posts?search=${
+      `${Config.apiUrl}/wp-json/wp/v2/posts?${Config.acfFormat}&search=${
         this.props.match.params.word
       }&per_page=20`
     )
@@ -27,7 +27,7 @@ class SearchList extends Component {
         }
       });
     fetch(
-      `${Config.apiUrl}/wp-json/wp/v2/roadmap?search=${
+      `${Config.apiUrl}/wp-json/wp/v2/roadmap?${Config.acfFormat}&search=${
         this.props.match.params.word
       }&per_page=20`
     )
@@ -40,7 +40,7 @@ class SearchList extends Component {
         }
       });
     fetch(
-      `${Config.apiUrl}/wp-json/wp/v2/roadshow?search=${
+      `${Config.apiUrl}/wp-json/wp/v2/roadshow?${Config.acfFormat}&search=${
         this.props.match.params.word
       }&per_page=20`
     )
@@ -53,7 +53,7 @@ class SearchList extends Component {
         }
       });
     fetch(
-      `${Config.apiUrl}/wp-json/wp/v2/seminar?search=${
+      `${Config.apiUrl}/wp-json/wp/v2/seminar?${Config.acfFormat}&search=${
         this.props.match.params.word
       }&per_page=20`
     )
@@ -67,7 +67,7 @@ class SearchList extends Component {
       });
 
     fetch(
-      `${Config.apiUrl}/wp-json/wp/v2/events?search=${
+      `${Config.apiUrl}/wp-json/wp/v2/events?${Config.acfFormat}&search=${
         this.props.match.params.word
       }&order=asc&per_page=60`
     )
