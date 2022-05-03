@@ -1,23 +1,37 @@
 import React, { Component } from "react";
 
 const EventItem = function(props) {
-  var startMonth = props.event.startMonth.substr(0, 3);
-  var endMonth = props.event.endMonth.substr(0, 3);
-
-  if (startMonth != endMonth) {
-    startMonth = startMonth + "/" + endMonth;
+  const eventStartDate = {
+    year: props.event.acf.date_start.substr(0, 4),
+    month: props.event.acf.date_start.substr(4, 2),
+    date: props.event.acf.date_start.substr(6, 2)
   }
-  var dateStart = props.event.acf.date_start.split("/");
-  var dateEnd = props.event.acf.date_end.split("/");
+  const eventEndDate = {
+    year: props.event.acf.date_end.substr(0, 4),
+    month: props.event.acf.date_end.substr(4, 2),
+    date: props.event.acf.date_end.substr(6, 2)
+  }
+
+  const startDateObj = new Date(`${eventStartDate.year}/${eventStartDate.month}/${eventStartDate.date}`);
+  const endDateObj = new Date(`${eventEndDate.year}/${eventEndDate.month}/${eventEndDate.date}`);
+  const formatter = new Intl.DateTimeFormat('en-US', { month: 'short' });
+  let month = formatter.format(startDateObj);
+
+  if (startDateObj.getMonth() !== endDateObj.getMonth()) {
+    month = month + "/" + formatter.format(endDateObj);;
+  }
+  
+  var dateStart = props.event.acf.date_start.substr(6, 2);
+  var dateEnd = props.event.acf.date_end.substr(6, 2);
 
   return (
     <li className="event">
       <div className="event-date">
         <p className="text-medium txt-white">{props.event.acf.year}</p>
         <h2 className="title txt-black">
-          {dateStart[0]}-{dateEnd[0]}
+          {dateStart}-{dateEnd}
         </h2>
-        <p className="text-medium txt-black">{startMonth.toUpperCase()}</p>
+        <p className="text-medium txt-black">{month.toUpperCase()}</p>
       </div>
       <div className="event-group">
         <p

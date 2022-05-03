@@ -36,21 +36,18 @@ class EventList extends Component {
     fetch(
       `${
         Config.apiUrl
-      }/wp-json/wp/v2/foodfocus_events?${Config.acfFormat}&year=${year}&month=${this.getMonth(
+      }/wp-json/wp/v2/foodfocus_events?${Config.acfFormat}filter[meta_query][relation]=AND&filter[meta_query][0][key]=year&filter[meta_query][0][value]=${year}&filter[meta_query][0][compare]==&filter[meta_query][1][key]=month&filter[meta_query][1][value]=${this.getMonth(
         month.toString()
-      )}`
+      )}&filter[meta_query][1][compare]==`
     )
       .then(res => res.json())
       .then(res => {
-        console.log(res);
-        this.setState({ allEventList: res });
-        this.modifyList(res, this.state.filterMonth, this.state.filterYear);
+        this.setState({ eventList: res });
       });
   }
 
   modifyList(eventList, filterMonth, filterYear) {
     var newList = [];
-    console.log(eventList);
     if (eventList.length > 0) {
       var currentMonth = "";
       var index = null;
@@ -68,7 +65,7 @@ class EventList extends Component {
         }
         newList[index].list.push(event);
       });
-      console.log(newList);
+
 
       this.setState({ eventList: newList });
     } else {
@@ -77,15 +74,13 @@ class EventList extends Component {
   }
   updateMonth(event) {
     var month = event.target.value;
-    this.setState({ filterMonth: month });
+    this.setState({ eventList: [], filterMonth: month });
     this.fetchEvents(this.state.filterYear, month);
-    //this.modifyList(this.state.allEventList, month, this.state.filterYear);
   }
   updateYear(event) {
     var year = event.target.value;
-    this.setState({ filterYear: year });
+    this.setState({ eventList: [], filterYear: year });
     this.fetchEvents(year, this.state.filterMonth);
-    //this.modifyList(this.state.allEventList, this.state.filterMonth, year);
   }
   getMonth(month) {
     switch (month) {
@@ -116,19 +111,17 @@ class EventList extends Component {
     }
   }
 
-  renderEventItem(events) {
-    return events.map(event => (
-      <EventItem key={`event-${event.id}`} event={event} />
-    ));
+  renderEventItem(event) {
+    return <EventItem key={`event-${event.id}`} event={event} />
   }
 
   render() {
     var eventList = this.state.eventList.map((eventObj, index) => (
       <div className="col-xs-12" key={`event-obj-${index}`}>
         <p className="text-large txt-black mar-bot">
-          {eventObj.month.toUpperCase()}
+          {eventObj.acf && eventObj.acf.month.toUpperCase()}
         </p>
-        <ul>{this.renderEventItem(eventObj.list)}</ul>
+        <ul>{this.renderEventItem(eventObj)}</ul>
       </div>
     ));
     return (
