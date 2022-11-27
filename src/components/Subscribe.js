@@ -53,7 +53,7 @@ class Subscribe extends Component {
             onChange={this.updateEmail}
           />
           <div className="subscribe" onClick={() => this.subscribe()}>
-            <a className="txt-mediumer">SUBSCRIBE TO NEWSLETTER</a>
+            <a className="txt-mediumer" style={{ cursor: 'pointer' }}>SUBSCRIBE TO NEWSLETTER</a>
           </div>
         </form>
       </div>
