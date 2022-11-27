@@ -21,7 +21,7 @@ class Subscribe extends Component {
     if (this.state.email !== "") {
       $.ajax({
         type: "POST",
-        url: "http://www.foodfocusthailand.com/email.php",
+        url: "https://www.foodfocusthailand.com/email.php",
         data: { email: this.state.email },
         dataType: "json",
         success: function(res) {
