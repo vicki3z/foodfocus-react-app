@@ -1,7 +1,6 @@
 import React from "react";
 
 const ListNavigation = function(props) {
-  console.log(props);
   return (
     <div className="row">
       <div className="col-md-12">

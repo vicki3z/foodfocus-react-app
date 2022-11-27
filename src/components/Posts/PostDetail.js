@@ -41,7 +41,7 @@ class PostDetail extends Component {
 	    		this.setState({
 	    			postInfo: res.shift()
 	    		})
-	    		console.log(this.state.postInfo);
+
 	    		this.setState({
 	    			postTitle: this.state.postInfo.title.rendered
 	    		})

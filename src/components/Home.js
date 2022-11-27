@@ -65,7 +65,7 @@ class Home extends Component {
 		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?${Config.acfFormat}&filter[category_name]=advertisement&order=asc&per_page=3`)
 				.then(res => res.json())
 				.then(res => {
-					console.log(res)
+
 					this.setState({
 	    			advertisement: res
 	    		})
