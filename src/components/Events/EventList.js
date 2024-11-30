@@ -10,7 +10,8 @@ class EventList extends Component {
       eventList: [],
       allEventList: [],
       filterMonth: "",
-      filterYear: ""
+      filterYear: "",
+      eventYears: [],
     };
 
     this.updateMonth = this.updateMonth.bind(this);
@@ -28,21 +29,32 @@ class EventList extends Component {
     this.setState({ filterYear: year });
   }
   componentDidMount() {
+   
+
     /* get page info */
     this.fetchEvents(this.state.filterYear, this.state.filterMonth);
   }
 
   fetchEvents(year, month) {
-    fetch(
-      `${
-        Config.apiUrl
-      }/wp-json/wp/v2/foodfocus_events?${Config.acfFormat}filter[meta_query][relation]=AND&filter[meta_query][0][key]=year&filter[meta_query][0][value]=${year}&filter[meta_query][0][compare]==&filter[meta_query][1][key]=month&filter[meta_query][1][value]=${this.getMonth(
-        month.toString()
-      )}&filter[meta_query][1][compare]==`
-    )
+     /* get all event_year */
+     fetch(`${Config.apiUrl}/wp-json/wp/v2/event_year?order=desc`)
       .then(res => res.json())
       .then(res => {
-        this.setState({ eventList: res });
+        this.setState({
+          eventYears: res
+        });
+
+        fetch(
+          `${
+            Config.apiUrl
+          }/wp-json/wp/v2/foodfocus_events?${Config.acfFormat}filter[meta_query][relation]=AND&filter[meta_query][0][key]=year&filter[meta_query][0][value]=${year}&filter[meta_query][0][compare]==&filter[meta_query][1][key]=month&filter[meta_query][1][value]=${this.getMonth(
+            month.toString()
+          )}&filter[meta_query][1][compare]==`
+        )
+          .then(res => res.json())
+          .then(res => {
+            this.setState({ eventList: res });
+          });
       });
   }
 
@@ -157,15 +169,11 @@ class EventList extends Component {
                     value={this.state.filterYear}
                     onChange={this.updateYear}
                   >
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
-                    <option value="2017">2017</option>
-                    <option value="2016">2016</option>
+                    {this.state.eventYears.map((year) => (
+                      <option key={`event-year-${year.id}`} value={year.name}>
+                        {year.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
