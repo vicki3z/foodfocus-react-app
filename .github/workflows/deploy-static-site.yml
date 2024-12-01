@@ -17,11 +17,11 @@ jobs:
         node-version: '16'
 
     - name: Install dependencies
-      run: |
-        CI=false yarn build
+      run: yarn install
 
     - name: Build the project
-      run: yarn build
+      run: |
+        CI=false yarn build
 
     - name: Deploy to FTP server
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
