@@ -32,4 +32,3 @@ jobs:
         log-level: 'verbose'
         local-dir: ./build/
         server-dir: ./domains/${{ secrets.FTP_DOMAIN }}/public_html/
-        dry-run: true
