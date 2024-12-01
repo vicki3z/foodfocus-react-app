@@ -1,6 +1,8 @@
 name: Deploy React via FTP
 on:
   workflow_dispatch:
+    branches:
+      - master  # Change this to your desired branchd
 
 jobs:
   deploy:
@@ -28,5 +30,8 @@ jobs:
         server: ${{ secrets.FTP_USERNAME }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: build/
-        server-dir: /domains/${{ secrets.FTP_DOMAIN }}/public_html/
+        port: ${{ secrets.FTP_PORT }}
+        log-level: 'verbose'
+        local-dir: ./build/
+        server-dir: ./domains/${{ secrets.FTP_DOMAIN }}/public_html/
+        dry-run: true
