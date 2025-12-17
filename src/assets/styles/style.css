@@ -3040,16 +3040,19 @@ table tr td {
     padding: 3rem 1rem;
   }
 }
+.banner-wrap .caption h1,
 .banner-wrap .caption h2 {
   font: 4.16em/1.12 'Roboto-Bold';
   padding-bottom: 0;
 }
 @media only screen and (max-width: 991px) {
+  .banner-wrap .caption h1,
   .banner-wrap .caption h2 {
     font-size: 2.47rem;
   }
 }
 @media only screen and (max-width: 767px) {
+  .banner-wrap .caption h1,
   .banner-wrap .caption h2 {
     font-size: 1.47rem;
   }
@@ -3226,11 +3229,13 @@ table tr td {
     height: 240px;
   }
 }
+.banner-wrap .item.medium .caption h1,
 .banner-wrap .item.medium .caption h2,
 .banner-wrap .item.medium .caption p {
   font-family: 'ThaiSansNeue-Regular';
 }
 @media only screen and (max-width: 767px) {
+  .banner-wrap .item.medium .caption h1,
   .banner-wrap .item.medium .caption h2 {
     font-size: 2.47rem;
   }

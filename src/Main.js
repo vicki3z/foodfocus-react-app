@@ -6,11 +6,13 @@ import PostSubComponents from './components/Posts/PostSubComponents.js';
 import SearchList from './components/Posts/SearchList.js';
 import Magazine from './components/Magazines/Magazine.js';
 import EventListWrapper from './components/Events/EventListWrapper.js';
+import AboutUs from './components/AboutUs.js';
 
 const Main = () => (
 	<div className="root responsivegrid">
 	  	<main>
 	    	<Route path="/index.html" exact component={Home} />
+	    	<Route path="/about-us" exact component={AboutUs} />
 	    	<Route path="/roadmaps" component={RoadmapSubComponents} />
 	    	<Route path="/roadshows" component={RoadmapSubComponents} />
 	    	<Route path="/seminars" component={RoadmapSubComponents} />
@@ -20,7 +22,7 @@ const Main = () => (
 	    	<Route path="/news" component={PostSubComponents} />
 	    	<Route path="/ushare" component={PostSubComponents} />
 
-			<Route path="/magazines" exact component={Magazine} />
+				<Route path="/magazines" exact component={Magazine} />
 	    	<Route path="/magazines/:slug" component={Magazine} />
 
 	    	<Route path="/search/:word" component={SearchList} />
