@@ -74,25 +74,38 @@ class PostList extends Component {
   }
   render() {
     return (
-      <div className="row">
-        <div className="col-md-12 col-sm-12">
-          <div className="content-header mar-bot">
-            <h3 className="title light txt-black">
-              {this.state.postType === "ushare"
-                ? "ACTIVITIES"
-                : this.state.postType.toUpperCase()}
-            </h3>
+      <>
+        <Helmet>
+          <meta charset="UTF-8" />
+          <title>{this.state.postType === "ushare" ? "Activities" : this.state.postType} - Food Focus Thailand | Be Media Focus</title>
+          <meta property="og:title" content={`${this.state.postType === "ushare" ? "Activities" : this.state.postType} - Food Focus Thailand | Be Media Focus`} />
+          <meta name="Description" content="Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, discover more about the no. 1 leading industry-focused magazine for food & beverage from Food Focus Thailand" />
+          <meta property="og:description" content="Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, discover more about the no. 1 leading industry-focused magazine for food & beverage from Food Focus Thailand" />
+          <meta property="og:url" content={`https://www.foodfocusthailand.com/${this.state.postTypeSlug}`} />
+          <meta property="og:locale" content="th_TH" />
+          <meta propert="og:type" content="website" />
+          <meta propert="og:site_name" content="Food Focus Thailand" />
+        </Helmet>
+        <div className="row">
+          <div className="col-md-12 col-sm-12">
+            <div className="content-header mar-bot">
+              <h3 className="title light txt-black">
+                {this.state.postType === "ushare"
+                  ? "ACTIVITIES"
+                  : this.state.postType.toUpperCase()}
+              </h3>
+            </div>
+            <div className="row list">{this.renderPostItem()}</div>
+            {this.state.totalPages !== 0 && (
+              <ListNavigation
+                currentPage={this.state.currentPage}
+                totalPages={this.state.totalPages}
+                location={this.props.location.pathname}
+              />
+            )}
           </div>
-          <div className="row list">{this.renderPostItem()}</div>
-          {this.state.totalPages !== 0 && (
-            <ListNavigation
-              currentPage={this.state.currentPage}
-              totalPages={this.state.totalPages}
-              location={this.props.location.pathname}
-            />
-          )}
         </div>
-      </div>
+      </>
     );
   }
 }

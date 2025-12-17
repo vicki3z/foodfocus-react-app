@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from 'react-helmet';
 import MagazineList from "./MagazineList.js";
 import { Config } from "../../config.js";
 import '../../assets/styles/magazine.css';
@@ -52,6 +53,17 @@ class Magazine extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <meta charset="UTF-8" />
+          <title>Magazines - Food Focus Thailand | Be Media Focus</title>
+          <meta property="og:title" content="Magazines - Food Focus Thailand | Be Media Focus" />
+          <meta name="Description" content="Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, Food Focus Thailand, the monthly trade magazine, which successfully acts as a forum between Food & Beverage producers and suppliers. The magazine aims to deliver well-balanced practical article, timely information, innovative technology, the latest market trends and so on. The premiere issue had been launched since April 2006." />
+          <meta property="og:description" content="Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, Food Focus Thailand, the monthly trade magazine, which successfully acts as a forum between Food & Beverage producers and suppliers. The magazine aims to deliver well-balanced practical article, timely information, innovative technology, the latest market trends and so on. The premiere issue had been launched since April 2006." />
+          <meta property="og:url" content="https://www.foodfocusthailand.com/magazines" />
+          <meta property="og:locale" content="th_TH" />
+          <meta propert="og:type" content="website" />
+          <meta propert="og:site_name" content="Food Focus Thailand" />
+        </Helmet>
         <section className="banner-wrap">
           <section className="item medium">
             <div className="thumb" />

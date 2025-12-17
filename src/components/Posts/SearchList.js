@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from 'react-helmet';
 import HomeMainPost from "../Posts/HomeMainPost.js";
 import { Config } from "../../config.js";
 import EventItem from "../Events/EventItem.js";
@@ -153,21 +154,35 @@ class SearchList extends Component {
       </div>
     ));
     return (
-      <section className="content pad-top-lg pad-bot-lg">
-        <div className="inner-container">
-          <div className="row list">
-            <div className="col-md-12 col-sm-12">
-              <div className="content-header mar-bot">
-                <h3 className="title light txt-black">
-                  Search for "{this.props.match.params.word}"
-                </h3>
+      <>
+        <Helmet>
+					<meta charset="UTF-8" />
+					<title>Food Focus Thailand | Be Media Focus</title>
+					<meta name="Description" content="Discover more about the no. 1 leading industry-focused magazine for food & beverage from Food Focus Thailand" />
+					<meta property="og:title" content="Food Focus Thailand | Be Media Focus" />
+					<meta property="og:description" content="Discover more about the no. 1 leading industry-focused magazine for food & beverage from Food Focus Thailand" />
+					<meta property="og:url" content="https://www.foodfocusthailand.com/index.html" />
+					<meta property="og:locale" content="th_TH" />
+					<meta propert="og:type" content="website" />
+					<meta propert="og:site_name" content="Food Focus Thailand" />
+					
+				</Helmet>
+        <section className="content pad-top-lg pad-bot-lg">
+          <div className="inner-container">
+            <div className="row list">
+              <div className="col-md-12 col-sm-12">
+                <div className="content-header mar-bot">
+                  <h3 className="title light txt-black">
+                    Search for "{this.props.match.params.word}"
+                  </h3>
+                </div>
+                {this.renderPostItem()}
               </div>
-              {this.renderPostItem()}
             </div>
+            <div className="row mar-top">{eventList}</div>
           </div>
-          <div className="row mar-top">{eventList}</div>
-        </div>
-      </section>
+        </section>
+      </>
     );
   }
 }

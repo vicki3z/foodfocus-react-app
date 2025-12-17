@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import MagazineItem from './MagazineItem.js'
 import { Config } from "../../config.js";
-import { Helmet } from "react-helmet";
 
 class MagazineList extends Component {
 	constructor(props) {
@@ -45,27 +44,13 @@ class MagazineList extends Component {
   		}
   		return (
   			<div className="inner-container">
-          <Helmet>
-            <meta charset="UTF-8" />
-            <title>{title} - Food Focus Thailand | Be Media Focus</title>
-            <meta name="Description" content={description} />
-            <meta property="og:title" content={`Magazines - ${title}`} />
-            <meta property="og:description" content={description} />
-            <meta property="og:url" content="http://www.foodfocusthailand.com/magazines" />
-            <meta property="og:locale" content="th_TH" />
-            <meta propert="og:type" content="website" />
-            <meta propert="og:site_name" content="Food Focus Thailand" />
-            {this.state.magazineList[0] != null &&
-              <meta property="og:image" content={this.state.magazineList[0].acf.image} />
-            }
-          </Helmet>
-                <div className="row">
-                	<MagazineItem magazine={this.state.latestMagazine} key={`${this.props.magazineType}-${this.state.latestMagazine.id}`} />
-                </div>
-				<div className="row">
-					{magazineList}
-				</div>
-            </div>
+					<div className="row">
+						<MagazineItem magazine={this.state.latestMagazine} key={`${this.props.magazineType}-${this.state.latestMagazine.id}`} />
+					</div>
+					<div className="row">
+						{magazineList}
+					</div>
+        </div>
   		)
   	}
 

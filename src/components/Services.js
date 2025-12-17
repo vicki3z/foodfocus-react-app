@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from "react-helmet";
 import '../assets/styles/home.css';
 
 const Services = () => {
@@ -32,6 +33,17 @@ const Services = () => {
 
   return (
     <div>
+      <Helmet>
+        <meta charset="UTF-8" />
+        <title>Services - Food Focus Thailand | Be Media Focus</title>
+        <meta property="og:title" content="Services - Food Focus Thailand | Be Media Focus" />
+        <meta name="Description" content="Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, with more than 10 years of experience, we can help you create a variety of promotional materials and concrete events to deliver your messages to the public." />
+        <meta property="og:description" content="Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, with more than 10 years of experience, we can help you create a variety of promotional materials and concrete events to deliver your messages to the public." />
+        <meta property="og:url" content="https://www.foodfocusthailand.com/services" />
+        <meta property="og:locale" content="th_TH" />
+        <meta propert="og:type" content="website" />
+        <meta propert="og:site_name" content="Food Focus Thailand" />
+      </Helmet>
       <section className="banner-wrap">
         <section className="item medium">
           <div className="thumb"></div>

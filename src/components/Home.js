@@ -203,9 +203,9 @@ class Home extends Component {
 					<meta charset="UTF-8" />
 					<title>Food Focus Thailand | Be Media Focus</title>
 					<meta name="Description" content="Discover more about the no. 1 leading industry-focused magazine for food & beverage from Food Focus Thailand" />
-					<meta property="og:title" content="Food Focus Thailand" />
+					<meta property="og:title" content="Food Focus Thailand | Be Media Focus" />
 					<meta property="og:description" content="Discover more about the no. 1 leading industry-focused magazine for food & beverage from Food Focus Thailand" />
-					<meta property="og:url" content="http://www.foodfocusthailand.com/index.html" />
+					<meta property="og:url" content="https://www.foodfocusthailand.com/index.html" />
 					<meta property="og:locale" content="th_TH" />
 					<meta propert="og:type" content="website" />
 					<meta propert="og:site_name" content="Food Focus Thailand" />
