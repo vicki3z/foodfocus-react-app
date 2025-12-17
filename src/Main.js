@@ -7,6 +7,7 @@ import SearchList from './components/Posts/SearchList.js';
 import Magazine from './components/Magazines/Magazine.js';
 import EventListWrapper from './components/Events/EventListWrapper.js';
 import AboutUs from './components/AboutUs.js';
+import Services from './components/Services.js';
 
 const Main = () => (
 	<div className="root responsivegrid">
@@ -26,6 +27,7 @@ const Main = () => (
 	    	<Route path="/magazines/:slug" component={Magazine} />
 
 	    	<Route path="/search/:word" component={SearchList} />
+				<Route path="/services" exact component={Services} />
 	    </main>
 	</div>
 )
