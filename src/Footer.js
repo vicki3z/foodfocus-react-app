@@ -13,19 +13,6 @@ class Footer extends Component {
               <ul className="partners mar-top-xs">
                 <li>
                   <a
-                    href="https://issuu.com/bemediafocus"
-                    title=""
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="https://www.foodfocusthailand.com/images/upload/p-2.png"
-                      alt=""
-                    />
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="https://www.mebmarket.com/index.php?action=Publisher&amp;publisher_id=393870&amp;id=393870&amp;name=Be%20Media%20Focus%20(Thailand)%20Co.,%20Ltd."
                     title=""
                     target="_blank"
@@ -33,19 +20,6 @@ class Footer extends Component {
                   >
                     <img
                       src="https://www.foodfocusthailand.com/images/upload/p-3.png"
-                      alt=""
-                    />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="http://www.mbookstore.com/publisher/395/Be-Media-Focus-(Thailand)-Co.,-Ltd./"
-                    title=""
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="https://www.foodfocusthailand.com/images/upload/p-4.png"
                       alt=""
                     />
                   </a>
