@@ -1,7 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../assets/styles/home.css';
 
 const Services = () => {
+  const [activeTab, setActiveTab] = useState('publication');
+
+  useEffect(() => {
+    const updateTabFromHash = () => {
+      const hash = window.location.hash.replace('#', '');
+
+      // Map hash to a known tab id, default to "publication"
+      const validTabs = ['publication', 'annual-report', 'catalog', 'event'];
+      const nextTab = validTabs.includes(hash) ? hash : 'publication';
+
+      setActiveTab(nextTab);
+
+      const el = document.getElementById(nextTab);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 0);
+      }
+    };
+
+    updateTabFromHash();
+    window.addEventListener('hashchange', updateTabFromHash);
+
+    return () => {
+      window.removeEventListener('hashchange', updateTabFromHash);
+    };
+  }, []);
+
   return (
     <div>
       <section className="banner-wrap">
@@ -26,21 +54,40 @@ const Services = () => {
         <div className="inner-container">
           <section data-tab className="services-tab">
             <div data-tab-header>
-              <a href="#publication" title="" className="col active">
+              <a
+                href="#publication"
+                title=""
+                className={`col ${activeTab === 'publication' ? 'active' : ''}`}
+              >
                 <h3 className="title-2 light">CONTRACT PUBLICATION</h3>
               </a>
-              <a href="#annual-report" title="" className="col">
+              <a
+                href="#annual-report"
+                title=""
+                className={`col ${activeTab === 'annual-report' ? 'active' : ''}`}
+              >
                 <h3 className="title-2 light">ANNIVERSARY & ANNUAL REPORT</h3>
               </a>
-              <a href="#catalog" title="" className="col">
+              <a
+                href="#catalog"
+                title=""
+                className={`col ${activeTab === 'catalog' ? 'active' : ''}`}
+              >
                 <h3 className="title-2 light">COMPANY PROFILE & PRODUCT CATALOGUE</h3>
               </a>
-              <a href="#event" title="" className="col">
+              <a
+                href="#event"
+                title=""
+                className={`col ${activeTab === 'event' ? 'active' : ''}`}
+              >
                 <h3 className="title-2 light">EVENT ORGANIZER</h3>
               </a>
             </div>
             <section data-tab-content className="pad-top-lg pad-bot-lg">
-              <div id="publication" className="inner active">
+              <div
+                id="publication"
+                className={`inner ${activeTab === 'publication' ? 'active' : ''}`}
+              >
                 <div className="col-sm-6 col-md-4">
                   <div className="product thumb-default magazine mar-top">
                     <figure><img src="https://www.foodfocusthailand.com/images/upload/3M.jpg" alt="" className="book-image" />
@@ -90,7 +137,10 @@ const Services = () => {
                   </div>
                 </div>
               </div>
-              <div id="annual-report" className="inner">
+              <div
+                id="annual-report"
+                className={`inner ${activeTab === 'annual-report' ? 'active' : ''}`}
+              >
                 <div className="col-sm-6 col-md-4">
                   <div className="product thumb-default magazine mar-top">
                     <figure><img src="https://www.foodfocusthailand.com/images/upload/Mama_1.jpg" alt="" className="book-image" />
@@ -116,7 +166,10 @@ const Services = () => {
                   </div>
                 </div>
               </div>
-              <div id="catalog" className="inner">
+              <div
+                id="catalog"
+                className={`inner ${activeTab === 'catalog' ? 'active' : ''}`}
+              >
                 <div className="col-sm-6 col-md-4">
                   <div className="product thumb-default magazine mar-top">
                     <figure><img src="https://www.foodfocusthailand.com/images/upload/3M_Thailand.jpg" alt="" className="book-image" />
@@ -226,7 +279,10 @@ const Services = () => {
                   </div>
                 </div>
               </div>
-              <div id="event" className="inner">
+              <div
+                id="event"
+                className={`inner ${activeTab === 'event' ? 'active' : ''}`}
+              >
                 <div className="col-sm-6 col-md-4">
                   <div className="product thumb-default magazine mar-top">
                     <figure><img src="https://www.foodfocusthailand.com/images/upload/ABB.jpg" alt="" className="book-image" />

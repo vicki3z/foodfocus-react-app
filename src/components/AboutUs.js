@@ -1,7 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../assets/styles/home.css';
 
 const AboutUs = () => {
+  const [activeTab, setActiveTab] = useState('advertiser');
+
+  useEffect(() => {
+    const updateTabFromHash = () => {
+      console.log('updateTabFromHash');
+      const hash = window.location.hash.replace('#', '');
+      const nextTab = hash === 'board' ? 'board' : 'advertiser';
+      setActiveTab(nextTab);
+
+      // Scroll to the corresponding section if it exists
+      const el = document.getElementById(nextTab);
+      if (el) {
+        // Timeout ensures layout (and tab visibility) is updated before scrolling
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 0);
+      }
+    };
+
+    updateTabFromHash();
+    window.addEventListener('hashchange', updateTabFromHash);
+
+    return () => {
+      window.removeEventListener('hashchange', updateTabFromHash);
+    };
+  }, []);
+
   return (
     <div>
       <section className="banner-wrap">
@@ -23,12 +50,30 @@ const AboutUs = () => {
         </section>
       </section>
       <section data-tab className="services-tab pad-top-lg">
-        <div data-tab-header className="row-centered narrow"><a href="#advertiser" title="" className="col active">
-          <h3 className="title-2 light">ADVERTISERS</h3></a><a href="#board" title="" className="col">
-          <h3 className="title-2 light">BOARD OF CONSULTANTS / <br />ENDORSEMENTS</h3></a>
+        <div data-tab-header className="row-centered narrow">
+          <a
+            href="#advertiser"
+            title=""
+            className={`col ${activeTab === 'advertiser' ? 'active' : ''}`}
+          >
+            <h3 className="title-2 light">ADVERTISERS</h3>
+          </a>
+          <a
+            href="#board"
+            title=""
+            className={`col ${activeTab === 'board' ? 'active' : ''}`}
+          >
+            <h3 className="title-2 light">
+              BOARD OF CONSULTANTS / <br />
+              ENDORSEMENTS
+            </h3>
+          </a>
         </div>
         <section data-tab-content className="pad-top-lg pad-bot-lg">
-          <div id="advertiser" className="inner active">
+          <div
+            id="advertiser"
+            className={`inner ${activeTab === 'advertiser' ? 'active' : ''}`}
+          >
             <div className="inner-container">
               <div className="row">
                 <div className="col-xs-12">
@@ -44,7 +89,10 @@ const AboutUs = () => {
               </div>
             </div>
           </div>
-          <div id="board" className="inner">
+          <div
+            id="board"
+            className={`inner ${activeTab === 'board' ? 'active' : ''}`}
+          >
             <div style={{ backgroundColor: '#dddddd' }} className="outer">
               <div className="inner-container">
                 <div className="row">
