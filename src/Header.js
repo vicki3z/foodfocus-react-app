@@ -15,19 +15,19 @@ class Header extends Component {
         {
           id: 2,
           name: "About Us",
-          url: "/about-us.html",
+          url: "/about-us",
           submenu: [
             {
               id: 3,
               name: "Advertiser",
-              url: "/about-us.html#advertiser",
+              url: "/about-us#advertiser",
               icon:
                 "https://www.foodfocusthailand.com/images/icons/advertisers.png"
             },
             {
               id: 4,
               name: "Board of Consultants/Endorsements",
-              url: "/about-us.html#board",
+              url: "/about-us#board",
               icon: "https://www.foodfocusthailand.com/images/icons/board.png"
             }
           ]
@@ -89,33 +89,33 @@ class Header extends Component {
         {
           id: 13,
           name: "Services",
-          url: "/services.html",
+          url: "/services",
           submenu: [
             {
               id: 14,
               name: "Contract Publication",
-              url: "/services.html#publication",
+              url: "/services#publication",
               icon:
                 "https://www.foodfocusthailand.com/images/icons/contract_pub.png"
             },
             {
               id: 15,
               name: "Anniversary & Annual Report",
-              url: "/services.html#annual-report",
+              url: "/services#annual-report",
               icon:
                 "https://www.foodfocusthailand.com/images/icons/annual_report.png"
             },
             {
               id: 16,
               name: "Company Profile & Product Catalogue",
-              url: "/services.html#catalog",
+              url: "/services#catalog",
               icon:
                 "https://www.foodfocusthailand.com/images/icons/profile_catalog.png"
             },
             {
               id: 17,
               name: "Event Organizer",
-              url: "/services.html#event",
+              url: "/services#event",
               icon:
                 "https://www.foodfocusthailand.com/images/icons/event_org.png"
             }
@@ -124,7 +124,7 @@ class Header extends Component {
         {
           id: 18,
           name: "Contact Us",
-          url: "/contact-us.html",
+          url: "/contact-us",
           submenu: []
         }
       ]

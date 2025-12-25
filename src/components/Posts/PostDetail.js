@@ -83,7 +83,7 @@ class PostDetail extends Component {
 		            {this.state.postInfo.acf != null &&
 						<meta property="og:description" content={this.state.postInfo.acf.summary} />
 		            }
-		            <meta property="og:url" content={`http://www.foodfocusthailand.com/${this.state.postTypeSlug}/${this.props.match.params.slug}`} />
+		            <meta property="og:url" content={`https://www.foodfocusthailand.com/${this.state.postTypeSlug}/${this.props.match.params.slug}`} />
 		            <meta property="og:locale" content="th_TH" />
 		            <meta propert="og:type" content="website" />
 		            <meta propert="og:site_name" content="Food Focus Thailand" />

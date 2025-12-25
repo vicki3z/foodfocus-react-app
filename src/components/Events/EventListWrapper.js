@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from "react-helmet";
 import { Config } from "../../config.js";
 import EventList from "./EventList.js";
 import PartnerList from "./PartnerList.js";
@@ -31,6 +32,17 @@ class EventListWrapper extends Component {
   	render() {
   		return (
   			<div>
+					<Helmet>
+						<meta charset="UTF-8" />
+						<title>Events & Exhibitions - Food Focus Thailand | Be Media Focus</title>
+						<meta property="og:title" content="Events & Exhibitions - Food Focus Thailand | Be Media Focus" />
+						<meta name="Description" content="Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, we have participated in the notable Food & Beverage related exhibitions both domestic and overseas to promote our magazine and other activities. That’s why we possess the strong and powerful database." />
+						<meta property="og:description" content="Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, we have participated in the notable Food & Beverage related exhibitions both domestic and overseas to promote our magazine and other activities. That’s why we possess the strong and powerful database." />
+						<meta property="og:url" content="https://www.foodfocusthailand.com/event-exhibition" />
+						<meta property="og:locale" content="th_TH" />
+						<meta propert="og:type" content="website" />
+						<meta propert="og:site_name" content="Food Focus Thailand" />
+					</Helmet>
 	  			<section className="banner-wrap">
 	                <section className="item medium">
 	                  <div className="thumb"></div>

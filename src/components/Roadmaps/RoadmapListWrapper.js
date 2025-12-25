@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 import RoadmapList from "./RoadmapList.js";
 import { Config } from "../../config.js";
 
@@ -12,7 +13,10 @@ class RoadmapListWrapper extends Component {
       pageContent: null,
       eventYears: [],
       yearActive: null,
-      pageInfoSlug: ""
+      pageInfoSlug: "",
+      pageMetaTitle: "",
+      pageMetaDescription: "",
+      pageMetaUrl: ""
     };
     this.setYearActive = this.setYearActive.bind(this);
   }
@@ -20,19 +24,34 @@ class RoadmapListWrapper extends Component {
     /** Set Post Type From Slug **/
     var type = "";
     var infoSlug = "";
+    var metaTitle = "";
+    var metaDescription = "";
+    var metaUrl = "";
     if (this.props.match.path.includes("roadmaps")) {
       type = "roadmap";
       infoSlug = "food-focus-thailand-roadmap";
+      metaTitle = "Roadmaps - Food Focus Thailand | Be Media Focus";
+      metaDescription = "Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, Food Focus Thailand Roadmap is the edutainment seminar which broaden the knowledge in Food & Beverage Industry. Let’s inspire your innovation thoughts and share the valuable experience among technology users and technology providers.";
+      metaUrl = "https://www.foodfocusthailand.com/roadmaps";
     } else if (this.props.match.path.includes("roadshows")) {
       type = "roadshow";
       infoSlug = "food-focus-thailand-roadshow";
+      metaTitle = "Roadshows - Food Focus Thailand | Be Media Focus";
+      metaDescription = "Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, Being a part of the sustainable success of Thai Food & Beverage Industry, Food Focus Thailand has organized “Food Focus Thailand Roadshow” to provide knowledge to Food & Beverage entrepreneurs located in major cities in Thailand.";
+      metaUrl = "https://www.foodfocusthailand.com/roadshows";
     } else {
       type = "seminar";
       infoSlug = "seminars-conferences";
+      metaTitle = "Seminars & Conferences - Food Focus Thailand | Be Media Focus";
+      metaDescription = "Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, with the expertise in organizing Food Focus Thailand Roadmap, we also organized seminar & conferences that definitely meet the partners’ needs.";
+      metaUrl = "https://www.foodfocusthailand.com/seminars";
     }
 
     this.setState({ roadMapType: type });
     this.setState({ pageInfoSlug: infoSlug });
+    this.setState({ pageMetaTitle: metaTitle });
+    this.setState({ pageMetaDescription: metaDescription });
+    this.setState({ pageMetaUrl: metaUrl });
   }
   setRoadmapSlug() {
     var slugSplit = this.props.match.path.split("/");
@@ -115,6 +134,17 @@ class RoadmapListWrapper extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <meta charset="UTF-8" />
+          <title>{this.state.pageMetaTitle}</title>
+          <meta property="og:title" content={this.state.pageMetaTitle} />
+          <meta name="Description" content={this.state.pageMetaDescription} />
+          <meta property="og:description" content={this.state.pageMetaDescription} />
+          <meta property="og:url" content={this.state.pageMetaUrl} />
+          <meta property="og:locale" content="th_TH" />
+          <meta propert="og:type" content="website" />
+          <meta propert="og:site_name" content="Food Focus Thailand" />
+        </Helmet>
         <section className="banner-wrap">
           <section className="item medium">
             <div className="thumb" />
