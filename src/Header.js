@@ -79,6 +79,12 @@ class Header extends Component {
             },
             {
               id: 12,
+              name: "Proseries",
+              url: "/proseries",
+              icon: "https://www.foodfocusthailand.com/images/icons/roadmap.png"
+            },
+            {
+              id: 13,
               name: "Exhibitions",
               url: "/event-exhibition",
               icon:
