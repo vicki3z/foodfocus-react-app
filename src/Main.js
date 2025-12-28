@@ -18,8 +18,9 @@ const Main = () => (
 	    	<Route path="/roadmaps" component={RoadmapSubComponents} />
 	    	<Route path="/roadshows" component={RoadmapSubComponents} />
 	    	<Route path="/seminars" component={RoadmapSubComponents} />
+	    	<Route path="/proseries" component={RoadmapSubComponents} />
 	    	<Route path="/event-exhibition" exact component={EventListWrapper} />
-	    	
+
 	    	<Route path="/whats-in" component={PostSubComponents} />
 	    	<Route path="/news" component={PostSubComponents} />
 	    	<Route path="/ushare" component={PostSubComponents} />
