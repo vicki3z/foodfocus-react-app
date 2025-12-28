@@ -59,7 +59,7 @@ class Home extends Component {
 	    		this.setState({
 	    			ushareArticles: res
 	    		})
-	    		
+
 	    	})
 
 		fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?${Config.acfFormat}&filter[category_name]=advertisement&order=asc&per_page=3`)
@@ -69,7 +69,7 @@ class Home extends Component {
 					this.setState({
 	    			advertisement: res
 	    		})
-					
+
 				})
 
 	   	/** Get Roadmap, Roadshow, Seminar **/
@@ -79,7 +79,7 @@ class Home extends Component {
 	    		this.setState({
 	    			eventsArticles: res
 	    		})
-	    		
+
 	    		fetch(`${Config.apiUrl}/wp-json/wp/v2/roadshow?${Config.acfFormat}&filter[meta_key]=homepage&filter[meta_value]=true&per_page=2`)
 			    	.then(res => res.json())
 			    	.then(res => {
@@ -93,9 +93,16 @@ class Home extends Component {
 					    		this.setState({
 					    			eventsArticles: this.state.eventsArticles.concat(res)
 					    		})
-					    		
+
+                  fetch(`${Config.apiUrl}/wp-json/wp/v2/proseries?${Config.acfFormat}&filter[meta_key]=homepage&filter[meta_value]=true&per_page=2`)
+                    .then(res => res.json())
+                    .then(res => {
+                      this.setState({
+                        eventsArticles: this.state.eventsArticles.concat(res)
+                      })
+
+					    	    })
 					    	})
-			    		
 			    	})
 	    	})
 
@@ -106,7 +113,7 @@ class Home extends Component {
 	    		this.setState({
 	    			magazine: res.shift()
 	    		})
-	    		
+
 	    	})
 	}
 
@@ -211,9 +218,9 @@ class Home extends Component {
 					<meta propert="og:site_name" content="Food Focus Thailand" />
 					{this.state.magazine != null &&
 						<meta property="og:image" content={this.state.magazine.acf.image} />
-						
+
 					}
-					
+
 				</Helmet>
 				<section className="banner-wrap">
 					<section className="item">
