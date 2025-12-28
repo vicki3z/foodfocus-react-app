@@ -35,11 +35,16 @@ class RoadmapDetail extends Component {
 				metaTitle = "Roadshows - Food Focus Thailand | Be Media Focus";
 				metaDescription = "Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, Being a part of the sustainable success of Thai Food & Beverage Industry, Food Focus Thailand has organized “Food Focus Thailand Roadshow” to provide knowledge to Food & Beverage entrepreneurs located in major cities in Thailand.";
 				metaUrl = "https://www.foodfocusthailand.com/roadshows";
-	    } else {
+	    } else if (this.props.match.path.includes("seminar")) {
 	    	type = "seminar";
 				metaTitle = "Seminars & Conferences - Food Focus Thailand | Be Media Focus";
 				metaDescription = "Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, with the expertise in organizing Food Focus Thailand Roadmap, we also organized seminar & conferences that definitely meet the partners’ needs.";
 				metaUrl = "https://www.foodfocusthailand.com/seminars";
+	    } else {
+	    	type = "proseries";
+				metaTitle = "ProSeries - Food Focus Thailand | Be Media Focus";
+				metaDescription = "Dedicated to be the industry-focused platform for Food & Beverage Industry in Thailand, with the expertise in organizing Food Focus Thailand Roadmap, we also organized seminar & conferences that definitely meet the partners’ needs.";
+				metaUrl = "https://www.foodfocusthailand.com/proseries";
 	    }
 
 	    this.setState({roadMapType: type});
@@ -56,8 +61,8 @@ class RoadmapDetail extends Component {
   		this.setRoadmapSlug();
   	}
   	componentDidMount() {
-  		
-  		
+
+
 	    fetch(`${Config.apiUrl}/wp-json/wp/v2/${this.state.roadMapType}?${Config.acfFormat}&slug=${this.props.match.params.slug}`)
 	    	.then(res => res.json())
 	    	.then(res => {
@@ -73,7 +78,7 @@ class RoadmapDetail extends Component {
 	    		this.setState({
 	    			postContent: this.state.postInfo.content.rendered
 	    		})
-	    		
+
 	    	})
 
 	    //Get other posts
@@ -83,7 +88,7 @@ class RoadmapDetail extends Component {
 	    		this.setState({
 	    			otherArticles: res
 	    		})
-	    		
+
 	    	})
   	}
   	renderOtherArticles() {
@@ -140,7 +145,7 @@ class RoadmapDetail extends Component {
 								</div>
 							</div>
 						</div>
-					</section>	
+					</section>
 				</>
   		)
   	}

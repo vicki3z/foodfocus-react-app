@@ -8,6 +8,11 @@
   line-height: 1.5em;
 }
 
+.page .content-body img {
+  max-width: 100%;
+  height: auto !important;
+}
+
 .page .see-all {
 	font-size: 1.3em;
 }
